@@ -16,6 +16,12 @@ body {
   inset: 0;
   z-index: 0;
   background: #0a0a0a;
+   opacity: 0;
+  transition: opacity 1.4s ease-out;
+}
+
+.portfolio-background.is-visible {
+  opacity: 1
 }
 
 .portfolio {

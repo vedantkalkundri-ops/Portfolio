@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import FoldText from "./FoldText";
 import "./PortfolioIntro.css";
 
-function PortfolioIntro({ onComplete }) {
+function PortfolioIntro({ onComplete, onMoveStart }) {
   const introRef = useRef(null);
   const textRef = useRef(null);
 
@@ -33,6 +33,7 @@ function PortfolioIntro({ onComplete }) {
         scale: finalScale,
         duration: 1.2,
         ease: "power4.inOut",
+        onStart: onMoveStart,
       })
 
       // Fade out the intro background
@@ -49,7 +50,7 @@ function PortfolioIntro({ onComplete }) {
     return () => {
       timeline.kill();
     };
-  }, [onComplete]);
+  }, [onComplete, onMoveStart]);
 
   return (
     <div ref={introRef} className="portfolio-intro">
