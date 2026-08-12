@@ -60,6 +60,24 @@ body {
   line-height: 1.6;
 }
 
+
+
+.portfolio-tagline {
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f7f2e8;
+  margin-bottom: clamp(1.25rem, 3.5vw, 2rem);
+  max-width: none;
+}
+
+.portfolio-tagline span {
+  color: #5227FF;
+  margin: 0 0.4em;
+  font-weight: 400;
+}
+
 @media (max-width: 480px) {
   .portfolio {
     padding-top: 7rem;

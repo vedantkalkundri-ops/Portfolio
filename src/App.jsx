@@ -42,17 +42,16 @@ function App() {
 
       <main className="portfolio">
         <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>
-        <h1>Welcome to my portfolio</h1>
+        <h1>Vedant Kalkundri</h1>
+        <p className="portfolio-tagline">Code <span>|</span> Build <span>|</span> Evolve</p>
 
         <section id="about">
           <p>
-            Hi, I'm Vedant. I'm a student interested in
-            software development, AI and cybersecurity.
+            I'm Vedant, a student developer working across full stack development,
+            AI/ML, and cybersecurity. I like building things end to end — then
+            figuring out how to make them better.
           </p>
         </section>
-        <section id="skills" className="portfolio-section"><h2>Skills</h2></section>
-        <section id="projects" className="portfolio-section"><h2>Projects</h2></section>
-        <section id="contact" className="portfolio-section"><h2>Contact</h2></section>
       </main>
     </>
   );
