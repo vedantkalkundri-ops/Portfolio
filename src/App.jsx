@@ -44,14 +44,12 @@ function App() {
         <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>
         <h1>Vedant Kalkundri</h1>
         <p className="portfolio-tagline">Code <span>|</span> Build <span>|</span> Evolve</p>
-
-        <section id="about">
-          <p>
-            I'm Vedant, a student developer working across full stack development,
-            AI/ML, and cybersecurity. I like building things end to end — then
-            figuring out how to make them better.
-          </p>
-        </section>
+        <p className="portfolio-intro-line">
+          I'm Vedant, a student developer working across full stack development,
+          AI/ML, and cybersecurity. I like building things end to end — then
+          figuring out how to make them better.
+        </p>
+       
       </main>
     </>
   );
