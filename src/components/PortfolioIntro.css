@@ -23,8 +23,19 @@
   text-align: center;
 }
 
+.portfolio-intro-text .fold-text {
+  white-space: nowrap;
+  
+}
+
 @media (max-width: 480px) {
   .portfolio-intro-text {
     max-width: calc(100vw - 1.5rem);
   }
+
+  .portfolio-intro-text .fold-text {
+    white-space: nowrap;
+    font-size:50px;
+  }
+
 }

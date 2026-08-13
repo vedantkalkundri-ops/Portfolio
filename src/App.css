@@ -61,7 +61,7 @@ body {
 }
 
 .portfolio p {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   max-width: 68rem;
   line-height: 1.6;
 }
@@ -100,7 +100,5 @@ body {
     font-size: 3rem;
   }
 
-  .portfolio p {
-    
-  }
+  
 }
