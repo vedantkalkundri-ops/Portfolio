@@ -32,7 +32,11 @@ body {
   width: min(100%, 1126px);
   margin: 0 auto;
   padding: clamp(7rem, 16vw, 9rem) clamp(1.25rem, 5vw, 2.5rem);
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .portfolio-brand {
@@ -48,23 +52,26 @@ body {
 }
 
 .portfolio h1 {
-  max-width: 14ch;
-  font-size: clamp(2.25rem, 7vw, 4rem);
-  line-height: 1.05;
+  font-family: 'Gloock', sans-serif;
+  max-width: 19ch;
+  letter-spacing: 5px;
+  font-size: clamp(4.25rem, 7vw, 4rem);
+  line-height: 1.09;
   margin-bottom: clamp(0.rem, 2vw, 1.25rem);
 }
 
 .portfolio p {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  max-width: 38rem;
+  max-width: 68rem;
   line-height: 1.6;
 }
 
 .portfolio-tagline {
-  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
-  font-weight: 600;
+  font-family: 'Chivo Mono', sans-serif;
+  font-size: clamp(0.5rem, 2.2vw, 1.05rem);
+  /* font-weight: 600; */
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #f7f2e8;
   margin-bottom: clamp(1.25rem, 3.5vw, 2rem);
   max-width: none;
@@ -78,6 +85,9 @@ body {
 
 .portfolio-intro-line {
   font-family: 'Rosemarine', sans-serif;
+  font-weight :200;
+  letter-spacing:2px;
+  
 }
 
 @media (max-width: 480px) {
@@ -87,5 +97,10 @@ body {
 
   .portfolio h1 {
     max-width: 10ch;
+    font-size: 3rem;
+  }
+
+  .portfolio p {
+    
   }
 }
