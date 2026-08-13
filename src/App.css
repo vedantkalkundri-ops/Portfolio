@@ -35,8 +35,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-right: min(50vw, 43rem);
 }
 
 .portfolio-brand {
@@ -93,6 +94,7 @@ body {
 @media (max-width: 480px) {
   .portfolio {
     padding-top: 7rem;
+    padding-right: clamp(1.25rem, 5vw, 2.5rem);
   }
 
   .portfolio h1 {

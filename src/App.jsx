@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import MoltenMetal from "./components/MoltenMetal";
+import Lanyard from "./components/Lanyard";
 import PortfolioIntro from "./components/PortfolioIntro";
 import "./App.css";
 
@@ -39,6 +40,8 @@ function App() {
           mouseStrength={0.3}
         />
       </div>
+
+      {!showIntro && <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />}
 
       <main className="portfolio">
         <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>

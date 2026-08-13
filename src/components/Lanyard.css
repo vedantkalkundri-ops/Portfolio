@@ -1,0 +1,21 @@
+.lanyard-wrapper {
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: 2;
+  width: min(48vw, 42rem);
+  height: 100svh;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lanyard-wrapper canvas {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    display: none;
+  }
+}
