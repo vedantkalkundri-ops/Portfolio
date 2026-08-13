@@ -82,12 +82,12 @@ function Band({ isMobile }) {
     context.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
     const image = profileTexture.image;
 
-    const drawCoverImage = (rect) => {
+    const drawContainedImage = (rect) => {
       const rx = rect.x * canvas.width;
       const ry = rect.y * canvas.height;
       const rw = rect.width * canvas.width;
       const rh = rect.height * canvas.height;
-      const scale = Math.max(rw / image.width, rh / image.height);
+      const scale = Math.min(rw / image.width, rh / image.height) * 0.99;
       const drawWidth = image.width * scale;
       const drawHeight = image.height * scale;
 
@@ -99,7 +99,9 @@ function Band({ isMobile }) {
       context.restore();
     };
 
-    drawCoverImage(FRONT_UV_RECT);
+    context.fillStyle = "#61625f";
+    context.fillRect(0, 0, canvas.width * 0.5, canvas.height * FRONT_UV_RECT.height);
+    drawContainedImage(FRONT_UV_RECT);
 
     const rx = BACK_UV_RECT.x * canvas.width;
     const ry = BACK_UV_RECT.y * canvas.height;
@@ -169,7 +171,7 @@ function Band({ isMobile }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[3, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody ref={j1} position={[0.5, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
         <RigidBody ref={j2} position={[1, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
