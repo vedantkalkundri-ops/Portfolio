@@ -29,7 +29,7 @@ body {
   z-index: 1;
   min-height: 100vh;
   min-height: 100svh;
-  width: min(100%, 1126px);
+  width: min(100%,1210px);
   margin: 0 auto;
   padding: clamp(7rem, 16vw, 9rem) clamp(1.25rem, 5vw, 2.5rem);
   display: flex;
