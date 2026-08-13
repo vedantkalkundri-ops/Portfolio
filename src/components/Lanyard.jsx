@@ -205,7 +205,7 @@ function Band({ isMobile }) {
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="#f7f2e8" depthTest={false} resolution={[1000, 1000]} lineWidth={1} />
+        <meshLineMaterial color="#dddcdd" depthTest={false} resolution={[1000, 1000]} lineWidth={0.6} />
       </mesh>
     </>
   );
