@@ -141,7 +141,7 @@ body {
 
 .github-link:hover .github-link__label,
 .github-link:focus-visible .github-link__label {
-  width: 10.5rem;
+  width: 9rem;
   margin-right: 0.6rem;
   opacity: 1;
   transform: translateX(0);
