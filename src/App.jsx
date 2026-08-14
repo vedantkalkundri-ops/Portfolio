@@ -41,8 +41,6 @@ function App() {
         />
       </div>
 
-      <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
-
       <main className="portfolio portfolio--brand">
         <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>
       </main>
@@ -63,6 +61,9 @@ function App() {
       <main className="portfolio">
         <h1>Vedant Kalkundri</h1>
         <p className="portfolio-tagline">Code <span>|</span> Build <span>|</span> Evolve</p>
+        
+        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
+
         <p className="portfolio-intro-line">
            A student developer working across full stack development,
           AI/ML, and cybersecurity. I like building things end to end — then

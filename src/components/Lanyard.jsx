@@ -40,7 +40,7 @@ export default function Lanyard({ position = [0, 0, 20], gravity = [0, -40, 0], 
       >
         <ambientLight intensity={Math.PI} />
         <Suspense fallback={null}>
-          <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60} paused={paused}>
+          <Physics key={isMobile} gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60} paused={paused}>
             <Band isMobile={isMobile} paused={paused} />
           </Physics>
           <Environment blur={0.75}>
@@ -138,19 +138,8 @@ function Band({ isMobile, paused }) {
   }, [dragged, hovered]);
 
   useFrame((state, delta) => {
+    if (paused) return;
     if (!fixed.current || !j1.current || !j2.current || !j3.current || !card.current || !band.current) return;
-
-    if (paused) {
-      // On first render during pause, initialize band points so it doesn't pop or jump later
-      curve.current.points[0].copy(j3.current.translation());
-      if (!j2.current.lerped) j2.current.lerped = new THREE.Vector3().copy(j2.current.translation());
-      if (!j1.current.lerped) j1.current.lerped = new THREE.Vector3().copy(j1.current.translation());
-      curve.current.points[1].copy(j2.current.lerped);
-      curve.current.points[2].copy(j1.current.lerped);
-      curve.current.points[3].copy(fixed.current.translation());
-      band.current.geometry.setPoints(curve.current.getPoints(isMobile ? 16 : 32));
-      return;
-    }
 
     if (dragged && pointerOffset.current) {
       const point = vector.current.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
@@ -183,7 +172,7 @@ function Band({ isMobile, paused }) {
 
   return (
     <>
-      <group position={[3, 4, 0]}>
+      <group position={isMobile ? [0, 4, 0] : [3, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody ref={j1} position={[0.5, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
         <RigidBody ref={j2} position={[1, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
