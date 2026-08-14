@@ -16,7 +16,7 @@ body {
   inset: 0;
   z-index: 0;
   background: #0a0a0a;
-   opacity: 0;
+  opacity: 0;
   transition: opacity 1.4s ease-out;
 }
 
@@ -87,9 +87,9 @@ body {
 
 .portfolio-intro-line {
   font-family: 'Rosemarine', sans-serif;
-  font-weight :200;
-  letter-spacing:2px;
-  
+  font-weight: 200;
+  letter-spacing: 2px;
+
 }
 
 @media (max-width: 768px) {
@@ -115,8 +115,15 @@ body {
   align-items: center;
   gap: 0;
   height: 2.5rem;
+  padding: 0 0.55rem;
   color: #f9f9f9;
   text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
 }
 
 .github-link__label {
@@ -139,6 +146,13 @@ body {
   transition: transform 260ms ease, color 180ms ease;
 }
 
+.github-link:hover,
+.github-link:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
 .github-link:hover .github-link__label,
 .github-link:focus-visible .github-link__label {
   width: 9rem;
@@ -156,7 +170,7 @@ body {
 .github-link:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 0.35rem;
-  border-radius: 0.15rem;
+  border-radius: 9999px;
 }
 
 @media (max-width: 480px) {
@@ -165,10 +179,11 @@ body {
     font-size: 3rem;
   }
 
-  
+
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .github-link__label,
   .github-link__icon {
     transition: none;
