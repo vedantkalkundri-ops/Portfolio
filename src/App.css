@@ -100,6 +100,65 @@ body {
   }
 }
 
+.portfolio--brand {
+  display: block;
+  min-height: 0;
+  padding: 0;
+}
+
+.github-link {
+  position: fixed;
+  top: 1rem;
+  right: clamp(1rem, 3vw, 2.3rem);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 2.5rem;
+  color: #f9f9f9;
+  text-decoration: none;
+}
+
+.github-link__label {
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Chivo Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateX(0.5rem);
+  transition: width 260ms ease, opacity 180ms ease, transform 260ms ease, margin-right 260ms ease;
+}
+
+.github-link__icon {
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  fill: currentColor;
+  transition: transform 260ms ease, color 180ms ease;
+}
+
+.github-link:hover .github-link__label,
+.github-link:focus-visible .github-link__label {
+  width: 10.5rem;
+  margin-right: 0.6rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.github-link:hover .github-link__icon,
+.github-link:focus-visible .github-link__icon {
+  transform: translateX(-0.15rem);
+  color: #ffffff;
+}
+
+.github-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 0.35rem;
+  border-radius: 0.15rem;
+}
+
 @media (max-width: 480px) {
   .portfolio h1 {
     max-width: 10ch;
@@ -107,4 +166,11 @@ body {
   }
 
   
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .github-link__label,
+  .github-link__icon {
+    transition: none;
+  }
 }
