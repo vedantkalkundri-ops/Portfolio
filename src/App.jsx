@@ -41,7 +41,7 @@ function App() {
         />
       </div>
 
-      {!showIntro && <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />}
+      <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
 
       <main className="portfolio portfolio--brand">
         <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>

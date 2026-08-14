@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unknown-property */
+
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import { Environment, Lightformer, useGLTF, useTexture } from "@react-three/drei";
@@ -21,7 +21,7 @@ const PROFILE_IMAGE = "/assets/lanyard/vedant-back.png";
 const FRONT_UV_RECT = { x: 0, y: 0, width: 0.5, height: 0.755 };
 const BACK_UV_RECT = { x: 0.5, y: 0, width: 0.5, height: 0.757 };
 
-export default function Lanyard({ position = [0, 0, 20], gravity = [0, -40, 0] }) {
+export default function Lanyard({ position = [0, 0, 20], gravity = [0, -40, 0], paused = false }) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Lanyard({ position = [0, 0, 20], gravity = [0, -40, 0] }
   }, []);
 
   return (
-    <div className="lanyard-wrapper" aria-label="Interactive portfolio badge">
+    <div className={`lanyard-wrapper${!paused ? " is-visible" : ""}`} aria-label="Interactive portfolio badge">
       <Canvas
         camera={{ position, fov: 20 }}
         dpr={[1, isMobile ? 1.25 : 2]}
@@ -40,8 +40,8 @@ export default function Lanyard({ position = [0, 0, 20], gravity = [0, -40, 0] }
       >
         <ambientLight intensity={Math.PI} />
         <Suspense fallback={null}>
-          <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-            <Band isMobile={isMobile} />
+          <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60} paused={paused}>
+            <Band isMobile={isMobile} paused={paused} />
           </Physics>
           <Environment blur={0.75}>
             <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
@@ -54,7 +54,7 @@ export default function Lanyard({ position = [0, 0, 20], gravity = [0, -40, 0] }
   );
 }
 
-function Band({ isMobile }) {
+function Band({ isMobile, paused }) {
   const band = useRef();
   const fixed = useRef();
   const j1 = useRef();
@@ -139,6 +139,18 @@ function Band({ isMobile }) {
 
   useFrame((state, delta) => {
     if (!fixed.current || !j1.current || !j2.current || !j3.current || !card.current || !band.current) return;
+
+    if (paused) {
+      // On first render during pause, initialize band points so it doesn't pop or jump later
+      curve.current.points[0].copy(j3.current.translation());
+      if (!j2.current.lerped) j2.current.lerped = new THREE.Vector3().copy(j2.current.translation());
+      if (!j1.current.lerped) j1.current.lerped = new THREE.Vector3().copy(j1.current.translation());
+      curve.current.points[1].copy(j2.current.lerped);
+      curve.current.points[2].copy(j1.current.lerped);
+      curve.current.points[3].copy(fixed.current.translation());
+      band.current.geometry.setPoints(curve.current.getPoints(isMobile ? 16 : 32));
+      return;
+    }
 
     if (dragged && pointerOffset.current) {
       const point = vector.current.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
