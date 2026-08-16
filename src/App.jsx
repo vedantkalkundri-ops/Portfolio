@@ -2,6 +2,8 @@ import { useCallback, useState } from "react";
 import MoltenMetal from "./components/MoltenMetal";
 import Lanyard from "./components/Lanyard";
 import PortfolioIntro from "./components/PortfolioIntro";
+import SplitText from "./components/SplitText";
+import DecryptedText from "./components/DecryptedText";
 import "./App.css";
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
       </main>
 
         <a
+          id="github-portfolio-link"
           className="github-link"
           href="https://github.com/vedantkalkundri-ops/Portfolio"
           target="_blank"
@@ -59,15 +62,50 @@ function App() {
         </a>
 
       <main className="portfolio">
-        <h1>Vedant Kalkundri</h1>
-        <p className="portfolio-tagline">Code <span>|</span> Build <span>|</span> Evolve</p>
+        <h1>
+          <SplitText
+            text="Vedant Kalkundri"
+            start={!showIntro}
+            delay={0.15}
+            duration={0.8}
+            stagger={0.04}
+            animation="slide-up"
+          />
+        </h1>
+        <p className="portfolio-tagline">
+          <DecryptedText
+            text="Code"
+            start={!showIntro}
+            decryptDelay={300}
+            charRevealSpeed={40}
+          />
+          <span className="tagline-separator" style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.4s ease', transitionDelay: '0.5s' }}>|</span>
+          <DecryptedText
+            text="Build"
+            start={!showIntro}
+            decryptDelay={600}
+            charRevealSpeed={40}
+          />
+          <span className="tagline-separator" style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.4s ease', transitionDelay: '0.8s' }}>|</span>
+          <DecryptedText
+            text="Evolve"
+            start={!showIntro}
+            decryptDelay={900}
+            charRevealSpeed={40}
+          />
+        </p>
         
         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
 
         <p className="portfolio-intro-line">
-           A student developer working across full stack development,
-          AI/ML, and cybersecurity. I like building things end to end — then
-          figuring out how to make them better.
+          <SplitText
+            text="A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better."
+            start={!showIntro}
+            delay={0.5}
+            duration={0.6}
+            stagger={0.008}
+            animation="blur-reveal"
+          />
         </p>
        
       </main>

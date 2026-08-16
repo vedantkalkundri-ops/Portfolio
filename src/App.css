@@ -74,12 +74,12 @@ body {
   /* font-weight: 600; */
   letter-spacing: 0.08em;
   /* text-transform: uppercase; */
-  color: #f7f2e8;
+  color: #ffffff;
   margin-bottom: clamp(1.25rem, 3.5vw, 2rem);
   max-width: none;
 }
 
-.portfolio-tagline span {
+.portfolio-tagline .tagline-separator {
   color: #5227FF;
   margin: 0 0.4em;
   font-weight: 400;
