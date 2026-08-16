@@ -31,7 +31,7 @@ export default function Lanyard({ position = [0, 0, 20], gravity = [0, -40, 0], 
   }, []);
 
   return (
-    <div className={`lanyard-wrapper${!paused ? " is-visible" : ""}`} aria-label="Interactive portfolio badge">
+    <div className={`lanyard-wrapper${!paused ? " is-visible" : ""}${!paused ? " no-transition" : ""}`} aria-label="Interactive portfolio badge">
       <Canvas
         camera={{ position, fov: 20 }}
         dpr={[1, isMobile ? 1.25 : 2]}

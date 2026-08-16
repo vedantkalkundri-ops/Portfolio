@@ -53,7 +53,7 @@ body {
 
 #root {
   min-height: 100svh;
-  overflow: clip;
+  overflow-x: hidden;
 }
 
 h1,
