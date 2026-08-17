@@ -226,7 +226,11 @@ body {
   height: 600px;
   flex: none;
   background: radial-gradient(circle at center, rgba(82, 39, 255, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .about-content {
   flex: 1;

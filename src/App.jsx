@@ -6,7 +6,7 @@ import Lanyard from "./components/Lanyard";
 import PortfolioIntro from "./components/PortfolioIntro";
 import SplitText from "./components/SplitText";
 import DecryptedText from "./components/DecryptedText";
-import Prism from "./components/Prism";
+import TiltedCard from "./components/TiltedCard";
 import "./App.css";
 
 function App() {
@@ -145,16 +145,25 @@ function App() {
       {!showIntro && (
         <section className="prism-section" id="about">
           <div className="prism-wrapper">
-            <Prism
-              animationType="rotate"
-              timeScale={0.8}
-              height={6.5}
-              baseWidth={4.2}
-              scale={2.3}
-              hueShift={0.0584}
-              colorFrequency={1}
-              noise={0.2}
-              glow={1}
+            <TiltedCard
+              imageSrc="/assets/lanyard/vedant-back.png"
+              altText="Vedant Kalkundri - Student Developer"
+              captionText="Vedant Kalkundri"
+              containerHeight="420px"
+              containerWidth="300px"
+              imageHeight="420px"
+              imageWidth="300px"
+              rotateAmplitude={12}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={true}
+              overlayContent={
+                <div className="tilted-card-overlay-content">
+                  <p className="tilted-card-title">Vedant Kalkundri</p>
+                  <p className="tilted-card-subtitle">Student Developer</p>
+                </div>
+              }
             />
           </div>
           <div className="about-content">
