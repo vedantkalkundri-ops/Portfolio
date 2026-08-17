@@ -179,7 +179,11 @@ function App() {
             </h2>
             <p className="about-text">
               <SplitText
-                text="I am Vedant Kalkundri, a student developer passionate about building end-to-end applications, exploring AI/ML architectures, and securing systems through cybersecurity research. I love creating performant, beautiful digital experiences."
+                text="I’m Vedant Kalkundri, an Information Science Engineering student passionate about software development, modern web technologies, artificial intelligence, and cybersecurity. I enjoy turning ideas into functional, engaging digital experiences while continuously exploring new technologies and building practical solutions.
+
+                Beyond academics, I actively participate in technical events, hackathons, and collaborative projects that challenge me to learn and think creatively. I also serve as Sergeant-at-Arms at the Rotaract Club of KLS GIT, where I contribute to organizing activities, coordinating events, and working with a team to create meaningful experiences.
+
+                I’m focused on growing as a developer through hands-on projects, competitions, leadership opportunities, and continuous learning. My goal is to build impactful technology, gain real-world experience, and keep challenging myself to become a better problem solver and developer."
                 start={!showIntro}
                 delay={0.4}
                 duration={0.6}
