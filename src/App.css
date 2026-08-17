@@ -194,7 +194,7 @@ body {
   }
 }
 
-.prism-section {
+.about-section {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -209,7 +209,7 @@ body {
   background: #000000;
 }
 
-.prism-section::before {
+.about-section::before {
   content: '';
   position: absolute;
   top: -150px;
@@ -220,7 +220,7 @@ body {
   pointer-events: none;
 }
 
-.prism-wrapper {
+.about-card-wrapper {
   position: relative;
   width: min(550px, 100%);
   height: 600px;
@@ -255,7 +255,7 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .prism-section {
+  .about-section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -268,4 +268,36 @@ body {
   .about-content {
     max-width: 100%;
   }
+}
+
+/* Glassmorphism Overlay Content for TiltedCard */
+.tilted-card-overlay-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.tilted-card-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Chivo Mono', monospace;
+  line-height: 1.2;
+}
+
+.tilted-card-subtitle {
+  margin: 6px 0 0 0;
+  font-size: 0.85rem;
+  color: #cccccc;
+  font-family: 'Chivo Mono', monospace;
+  line-height: 1.2;
 }

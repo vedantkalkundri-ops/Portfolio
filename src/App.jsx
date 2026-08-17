@@ -143,10 +143,10 @@ function App() {
       </main>
 
       {!showIntro && (
-        <section className="prism-section" id="about">
-          <div className="prism-wrapper">
+        <section className="about-section" id="about">
+          <div className="about-card-wrapper">
             <TiltedCard
-              imageSrc="/assets/lanyard/vedant-back.png"
+              imageSrc="/public/passpostph.jpeg"
               altText="Vedant Kalkundri - Student Developer"
               captionText="Vedant Kalkundri"
               containerHeight="420px"

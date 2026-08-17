@@ -43,11 +43,11 @@
 
 .tilted-card-overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   z-index: 2;
   will-change: transform;
   transform: translateZ(30px);
-  pointer-events: none;
 }
 
 .tilted-card-caption {
@@ -62,36 +62,4 @@
   color: #2d2d2d;
   opacity: 0;
   z-index: 3;
-}
-
-/* Glassmorphism Overlay Content */
-.tilted-card-overlay-content {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(10, 10, 10, 0.65);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 16px;
-  border-radius: 12px;
-  text-align: left;
-}
-
-.tilted-card-title {
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #ffffff;
-  font-family: 'Chivo Mono', monospace;
-  line-height: 1.2;
-}
-
-.tilted-card-subtitle {
-  margin: 6px 0 0 0;
-  font-size: 0.85rem;
-  color: #cccccc;
-  font-family: 'Chivo Mono', monospace;
-  line-height: 1.2;
 }
