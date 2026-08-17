@@ -78,9 +78,7 @@ function App() {
         />
       </div>
 
-      <main className="portfolio portfolio--brand">
-        <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>
-      </main>
+      <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>
 
       <a
         id="github-portfolio-link"
