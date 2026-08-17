@@ -49,7 +49,7 @@ body {
   position: fixed;
   top: 1.1rem;
   left: clamp(1rem, 3vw, 2.3rem);
-  z-index: 1;
+  z-index: 10;
   color: #f9f9f9;
   font-size: clamp(1.125rem, 4.2vw, 2rem);
   font-weight: 800;
@@ -114,7 +114,7 @@ body {
   position: fixed;
   top: 1rem;
   right: clamp(1rem, 3vw, 2.3rem);
-  z-index: 3;
+  z-index: 10;
   display: inline-flex;
   align-items: center;
   gap: 0;
@@ -197,24 +197,71 @@ body {
 .prism-section {
   position: relative;
   width: 100%;
-  padding: 4rem clamp(1.25rem, 5vw, 2.5rem);
+  min-height: 100vh;
+  padding: 6rem clamp(1.25rem, 5vw, 2.5rem);
   padding-left: clamp(3rem, 7vw, 9rem);
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 4rem;
   z-index: 1;
+  background: #000000;
+}
+
+.prism-section::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  pointer-events: none;
 }
 
 .prism-wrapper {
   position: relative;
   width: min(500px, 100%);
   height: 500px;
+  flex: none;
   background: radial-gradient(circle at center, rgba(82, 39, 255, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
 }
 
-@media (max-width: 768px) {
+.about-content {
+  flex: 1;
+  max-width: 600px;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.about-title {
+  font-family: 'Gloock', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.about-text {
+  font-family: 'Chivo Mono', monospace;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  color: #9ca3af;
+}
+
+@media (max-width: 1024px) {
   .prism-section {
-    padding-left: clamp(1.25rem, 5vw, 2.5rem);
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-left: clamp(1.25rem, 5vw, 2.5rem);
+    text-align: center;
+    min-height: auto;
+  }
+
+  .about-content {
+    max-width: 100%;
   }
 }

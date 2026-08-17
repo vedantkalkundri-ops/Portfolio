@@ -145,7 +145,7 @@ function App() {
       </main>
 
       {!showIntro && (
-        <section className="prism-section">
+        <section className="prism-section" id="about">
           <div className="prism-wrapper">
             <Prism
               animationType="rotate"
@@ -158,6 +158,28 @@ function App() {
               noise={0.2}
               glow={1}
             />
+          </div>
+          <div className="about-content">
+            <h2 className="about-title">
+              <SplitText
+                text="About Me"
+                start={!showIntro}
+                delay={0.2}
+                duration={0.8}
+                stagger={0.05}
+                animation="slide-up"
+              />
+            </h2>
+            <p className="about-text">
+              <SplitText
+                text="I am Vedant Kalkundri, a student developer passionate about building end-to-end applications, exploring AI/ML architectures, and securing systems through cybersecurity research. I love creating performant, beautiful digital experiences."
+                start={!showIntro}
+                delay={0.4}
+                duration={0.6}
+                stagger={0.005}
+                animation="blur-reveal"
+              />
+            </p>
           </div>
         </section>
       )}

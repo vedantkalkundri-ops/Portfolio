@@ -174,7 +174,8 @@ const Prism = ({
 
         vec3 col = o.rgb;
         float n = rand(gl_FragCoord.xy + vec2(iTime));
-        col += (n - 0.5) * uNoise;
+        float noiseMask = clamp(o.a * 5.0, 0.0, 1.0);
+        col += (n - 0.5) * uNoise * noiseMask;
         col = clamp(col, 0.0, 1.0);
 
         float L = dot(col, vec3(0.2126, 0.7152, 0.0722));
@@ -184,7 +185,12 @@ const Prism = ({
           col = clamp(hueRotation(uHueShift) * col, 0.0, 1.0);
         }
 
-        gl_FragColor = vec4(col, o.a);
+        // Seamless border fade (vignette)
+        vec2 uv = gl_FragCoord.xy / iResolution.xy;
+        float fade = uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y);
+        fade = clamp(pow(16.0 * fade, 0.4), 0.0, 1.0);
+
+        gl_FragColor = vec4(col * fade, o.a * fade);
       }
     `;
 
