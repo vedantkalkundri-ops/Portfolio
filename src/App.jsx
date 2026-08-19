@@ -75,9 +75,9 @@ function App() {
 
         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
 
-        <p className="portfolio-intro-line">
+        <div className="portfolio-intro-line">
           A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better.
-        </p>
+        </div>
 
         <div className={`portfolio-static-title${!showIntro ? " is-visible" : ""}`}>
           PORTFOLIO
