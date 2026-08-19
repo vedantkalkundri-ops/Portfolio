@@ -197,7 +197,7 @@ body {
 
 /* Portfolio Static Title at Hero Bottom */
 .portfolio-static-title {
-  font-family: 'Bright shade', sans-serif;
+  font-family: 'REVERIE', sans-serif;
   font-size: clamp(4rem, 12vw, 10.5rem);
   margin-top: clamp(2rem, 5vw, 4.5rem);
   display: inline-flex;
