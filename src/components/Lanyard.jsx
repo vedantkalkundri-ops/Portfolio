@@ -69,6 +69,11 @@ function Band({ isMobile, paused }) {
   const curve = useRef(new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const vector = useRef(new THREE.Vector3());
   const direction = useRef(new THREE.Vector3());
+  const groupRef = useRef();
+  const tempV0 = useRef(new THREE.Vector3());
+  const tempV1 = useRef(new THREE.Vector3());
+  const tempV2 = useRef(new THREE.Vector3());
+  const tempV3 = useRef(new THREE.Vector3());
   const segmentProps = { type: "dynamic", canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const cardMap = useMemo(() => {
     const baseMap = materials.base.map;
@@ -159,10 +164,17 @@ function Band({ isMobile, paused }) {
       current.lerped.lerp(current.translation(), delta * distance * 50);
     });
 
-    curve.current.points[0].copy(j3.current.translation());
-    curve.current.points[1].copy(j2.current.lerped);
-    curve.current.points[2].copy(j1.current.lerped);
-    curve.current.points[3].copy(fixed.current.translation());
+    if (groupRef.current) {
+      const p0 = groupRef.current.worldToLocal(tempV0.current.copy(j3.current.translation()));
+      const p1 = groupRef.current.worldToLocal(tempV1.current.copy(j2.current.lerped));
+      const p2 = groupRef.current.worldToLocal(tempV2.current.copy(j1.current.lerped));
+      const p3 = groupRef.current.worldToLocal(tempV3.current.copy(fixed.current.translation()));
+
+      curve.current.points[0].copy(p0);
+      curve.current.points[1].copy(p1);
+      curve.current.points[2].copy(p2);
+      curve.current.points[3].copy(p3);
+    }
     band.current.geometry.setPoints(curve.current.getPoints(isMobile ? 16 : 32));
 
     const angularVelocity = card.current.angvel();
@@ -172,7 +184,7 @@ function Band({ isMobile, paused }) {
 
   return (
     <>
-      <group position={isMobile ? [0, 4, 0] : [3, 4, 0]}>
+      <group ref={groupRef} position={isMobile ? [0, 4, 0] : [4.8, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody ref={j1} position={[0.5, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
         <RigidBody ref={j2} position={[1, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
@@ -203,11 +215,11 @@ function Band({ isMobile, paused }) {
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
           </group>
         </RigidBody>
+        <mesh ref={band}>
+          <meshLineGeometry />
+          <meshLineMaterial color="#dddcdd" depthTest={false} resolution={[1000, 1000]} lineWidth={0.6} />
+        </mesh>
       </group>
-      <mesh ref={band}>
-        <meshLineGeometry />
-        <meshLineMaterial color="#dddcdd" depthTest={false} resolution={[1000, 1000]} lineWidth={0.6} />
-      </mesh>
     </>
   );
 }

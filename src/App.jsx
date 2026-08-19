@@ -65,13 +65,7 @@ function App() {
 
       <main className="portfolio">
         <h1>Vedant Kalkundri</h1>
-        <p className="portfolio-tagline">
-          <span>Code</span>
-          <span className="tagline-separator" style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.4s ease', transitionDelay: '0.5s' }}>|</span>
-          <span>Build</span>
-          <span className="tagline-separator" style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.4s ease', transitionDelay: '0.8s' }}>|</span>
-          <span>Evolve</span>
-        </p>
+
 
         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
 
