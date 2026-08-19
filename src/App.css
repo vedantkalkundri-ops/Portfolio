@@ -197,9 +197,11 @@ body {
 
 /* Portfolio Static Title at Hero Bottom */
 .portfolio-static-title {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 2.3rem);
+  left: clamp(1rem, 3vw, 2.3rem);
   font-family: 'REVERIE', sans-serif;
   font-size: clamp(4rem, 12vw, 10.5rem);
-  margin-top: clamp(2rem, 5vw, 4.5rem);
   display: inline-flex;
   align-items: center;
   opacity: 0;
