@@ -89,12 +89,32 @@ body {
   font-weight: 400;
 }
 
+/* Portfolio Bottom Section (Tagline + Static Title) */
+.portfolio-bottom-section {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  left: clamp(1rem, 3vw, 2.3rem);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.5s;
+}
+
+.portfolio-bottom-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .portfolio-intro-line {
   max-width: 20rem;
   opacity: 0.85;
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-left: calc(clamp(1rem, 3vw, 2.3rem) - clamp(3rem, 7vw, 9rem));
 }
 
 @media (max-width: 768px) {
@@ -104,8 +124,8 @@ body {
     padding-right: clamp(1.25rem, 5vw, 2.5rem);
   }
 
-  .portfolio-intro-line {
-    margin-left: calc(clamp(1rem, 3vw, 2.3rem) - clamp(1.25rem, 5vw, 2.5rem));
+  .portfolio-bottom-section {
+    left: clamp(1.25rem, 5vw, 2.5rem);
   }
 }
 
@@ -200,27 +220,15 @@ body {
 }
 
 
-/* Portfolio Static Title at Hero Bottom */
+/* Portfolio Static Title inside Bottom Section */
 .portfolio-static-title {
-  position: absolute;
-  bottom: clamp(0rem, 0vw, 0rem);
-  left: clamp(1rem, 3vw, 2.3rem);
   font-family: 'REVERIE', sans-serif;
   font-size: clamp(4rem, 12vw, 10.5rem);
   display: inline-flex;
   align-items: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 10;
   user-select: none;
   letter-spacing: 0.02em;
   color: #f7f2e8;
-  line-height: 1.1;
+  line-height: 0.9;
   text-transform: uppercase;
-}
-
-.portfolio-static-title.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }

@@ -75,12 +75,13 @@ function App() {
 
         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
 
-        <div className="portfolio-intro-line">
-          A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better.
-        </div>
-
-        <div className={`portfolio-static-title${!showIntro ? " is-visible" : ""}`}>
-          PORTFOLIO
+        <div className={`portfolio-bottom-section${!showIntro ? " is-visible" : ""}`}>
+          <div className="portfolio-intro-line">
+            A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better.
+          </div>
+          <div className="portfolio-static-title">
+            PORTFOLIO
+          </div>
         </div>
       </main>
     </>
