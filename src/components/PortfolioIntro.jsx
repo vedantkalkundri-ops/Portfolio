@@ -33,7 +33,7 @@ function PortfolioIntro({ onComplete, onMoveStart }) {
       // Flicker 3: Off -> On (stable)
       .to(animatedTitle, { opacity: 1, duration: 0.15 })
       // Wait a little so the user can see VK fully on
-      .to({}, { duration: 0.2 })
+      .to({}, { duration: 0.4 })
 
       // Move VK to top-left
       .to(text, {

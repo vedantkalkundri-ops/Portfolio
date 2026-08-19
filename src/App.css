@@ -90,10 +90,8 @@ body {
 }
 
 .portfolio-intro-line {
-  font-family: 'Rosemarine', sans-serif;
-  font-weight: 200;
-  letter-spacing: 2px;
-
+  max-width: 20rem;
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {
@@ -198,7 +196,7 @@ body {
 /* Portfolio Static Title at Hero Bottom */
 .portfolio-static-title {
   position: absolute;
-  bottom: clamp(1rem, 3vw, 2.3rem);
+  bottom: clamp(0rem, 0vw, 0rem);
   left: clamp(1rem, 3vw, 2.3rem);
   font-family: 'REVERIE', sans-serif;
   font-size: clamp(4rem, 12vw, 10.5rem);
