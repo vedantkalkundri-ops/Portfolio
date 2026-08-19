@@ -194,116 +194,26 @@ body {
   }
 }
 
-.about-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  padding: 6rem clamp(1.25rem, 5vw, 2.5rem);
-  padding-left: clamp(3rem, 7vw, 9rem);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+
+/* Portfolio Static Title at Hero Bottom */
+.portfolio-static-title {
+  font-family: 'Bright shade', sans-serif;
+  font-size: clamp(4rem, 12vw, 10.5rem);
+  margin-top: clamp(2rem, 5vw, 4.5rem);
+  display: inline-flex;
   align-items: center;
-  gap: 4rem;
-  z-index: 1;
-  background: #000000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  user-select: none;
+  letter-spacing: 0.02em;
+  color: #f7f2e8;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
-.about-section::before {
-  content: '';
-  position: absolute;
-  top: -150px;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  pointer-events: none;
-}
-
-.about-card-wrapper {
-  position: relative;
-  width: min(550px, 100%);
-  height: 600px;
-  flex: none;
-  background: radial-gradient(circle at center, rgba(82, 39, 255, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.about-content {
-  flex: 1;
-  max-width: 600px;
-  color: #ffffff;
-  z-index: 2;
-}
-
-.about-title {
-  font-family: Arial, sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
-  color: #ffffff;
-}
-
-.about-text {
-  font-family: Arial, sans-serif;
-  font-size: clamp(0.8rem, 1.5vw, 0.92rem);
-  line-height: 1.6;
-  color: #a3a3a3;
-}
-
-@media (max-width: 1024px) {
-  .about-section {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding-left: clamp(1.25rem, 5vw, 2.5rem);
-    text-align: center;
-    min-height: auto;
-  }
-
-  .about-content {
-    max-width: 100%;
-  }
-}
-
-/* Glassmorphism Overlay Content for TiltedCard */
-.tilted-card-overlay {
-  width: 100%;
-  height: 100%;
-}
-
-.tilted-card-overlay-content {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(10, 10, 10, 0.65);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 16px;
-  border-radius: 12px;
-  text-align: left;
-}
-
-.tilted-card-title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  line-height: 1.2;
-}
-
-.tilted-card-subtitle {
-  margin: 4px 0 0 0;
-  font-size: 0.8rem;
-  color: #cccccc;
-  font-family: Arial, sans-serif;
-  line-height: 1.2;
+.portfolio-static-title.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

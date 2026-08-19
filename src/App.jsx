@@ -1,13 +1,10 @@
-import { useCallback, useState, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useCallback, useState } from "react";
 import MoltenMetal from "./components/MoltenMetal";
 import Lanyard from "./components/Lanyard";
 import PortfolioIntro from "./components/PortfolioIntro";
-import SplitText from "./components/SplitText";
-import DecryptedText from "./components/DecryptedText";
-import TiltedCard from "./components/TiltedCard";
 import "./App.css";
+
+
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -15,37 +12,9 @@ function App() {
   const handleMoveStart = useCallback(() => setShowBackground(true), []);
   const handleIntroComplete = useCallback(() => setShowIntro(false), []);
 
-  useEffect(() => {
-    if (showIntro) return;
 
-    gsap.registerPlugin(ScrollTrigger);
 
-    const anim = gsap.to([".portfolio-background", ".lanyard-wrapper"], {
-      opacity: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".portfolio",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-        onUpdate: (self) => {
-          const lanyard = document.querySelector(".lanyard-wrapper");
-          if (lanyard) {
-            if (self.progress > 0.8) {
-              lanyard.style.pointerEvents = "none";
-            } else {
-              lanyard.style.pointerEvents = "auto";
-            }
-          }
-        }
-      },
-    });
 
-    return () => {
-      anim.scrollTrigger?.kill();
-      anim.kill();
-    };
-  }, [showIntro]);
 
   return (
     <>
@@ -78,7 +47,7 @@ function App() {
         />
       </div>
 
-      <div className="portfolio-brand" aria-label="Portfolio">PORTFOLIO</div>
+      <div className="portfolio-brand" aria-label="Portfolio">VK</div>
 
       <a
         id="github-portfolio-link"
@@ -95,105 +64,25 @@ function App() {
       </a>
 
       <main className="portfolio">
-        <h1>
-          <SplitText
-            text="Vedant Kalkundri"
-            start={!showIntro}
-            delay={0.15}
-            duration={0.8}
-            stagger={0.04}
-            animation="slide-up"
-          />
-        </h1>
+        <h1>Vedant Kalkundri</h1>
         <p className="portfolio-tagline">
-          <DecryptedText
-            text="Code"
-            start={!showIntro}
-            decryptDelay={300}
-            charRevealSpeed={40}
-          />
+          <span>Code</span>
           <span className="tagline-separator" style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.4s ease', transitionDelay: '0.5s' }}>|</span>
-          <DecryptedText
-            text="Build"
-            start={!showIntro}
-            decryptDelay={600}
-            charRevealSpeed={40}
-          />
+          <span>Build</span>
           <span className="tagline-separator" style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.4s ease', transitionDelay: '0.8s' }}>|</span>
-          <DecryptedText
-            text="Evolve"
-            start={!showIntro}
-            decryptDelay={900}
-            charRevealSpeed={40}
-          />
+          <span>Evolve</span>
         </p>
 
         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
 
         <p className="portfolio-intro-line">
-          <SplitText
-            text="A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better."
-            start={!showIntro}
-            delay={0.5}
-            duration={0.6}
-            stagger={0.008}
-            animation="blur-reveal"
-          />
+          A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better.
         </p>
+
+        <div className={`portfolio-static-title${!showIntro ? " is-visible" : ""}`}>
+          PORTFOLIO
+        </div>
       </main>
-
-      {!showIntro && (
-        <section className="about-section" id="about">
-          <div className="about-card-wrapper">
-            <TiltedCard
-              imageSrc="/public/passpostph.jpeg"
-              altText="Vedant Kalkundri - Student Developer"
-              captionText="Vedant Kalkundri"
-              containerHeight="420px"
-              containerWidth="300px"
-              imageHeight="420px"
-              imageWidth="300px"
-              rotateAmplitude={12}
-              scaleOnHover={1.05}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <div className="tilted-card-overlay-content">
-                  <p className="tilted-card-title">Vedant Kalkundri</p>
-                  <p className="tilted-card-subtitle">Student Developer</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="about-content">
-            <h2 className="about-title">
-              <SplitText
-                text="About Me"
-                start={!showIntro}
-                delay={0.2}
-                duration={0.8}
-                stagger={0.05}
-                animation="slide-up"
-              />
-            </h2>
-            <p className="about-text">
-              <SplitText
-                text="I’m Vedant Kalkundri, an Information Science Engineering student passionate about software development, modern web technologies, artificial intelligence, and cybersecurity. I enjoy turning ideas into functional, engaging digital experiences while continuously exploring new technologies and building practical solutions.
-
-                Beyond academics, I actively participate in technical events, hackathons, and collaborative projects that challenge me to learn and think creatively. I also serve as Sergeant-at-Arms at the Rotaract Club of KLS GIT, where I contribute to organizing activities, coordinating events, and working with a team to create meaningful experiences.
-
-                I’m focused on growing as a developer through hands-on projects, competitions, leadership opportunities, and continuous learning. My goal is to build impactful technology, gain real-world experience, and keep challenging myself to become a better problem solver and developer."
-                start={!showIntro}
-                delay={0.4}
-                duration={0.6}
-                stagger={0.005}
-                animation="blur-reveal"
-              />
-            </p>
-          </div>
-        </section>
-      )}
     </>
   );
 }

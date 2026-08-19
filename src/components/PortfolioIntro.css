@@ -23,9 +23,13 @@
   text-align: center;
 }
 
-.portfolio-intro-text .fold-text {
+.portfolio-intro-text .intro-title {
   white-space: nowrap;
-  
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 800;
+  color: #f7f2e8;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
 }
 
 @media (max-width: 480px) {
@@ -33,9 +37,8 @@
     max-width: calc(100vw - 1.5rem);
   }
 
-  .portfolio-intro-text .fold-text {
+  .portfolio-intro-text .intro-title {
     white-space: nowrap;
-    font-size:50px;
+    font-size: 50px;
   }
-
 }

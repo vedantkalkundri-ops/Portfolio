@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import FoldText from "./FoldText";
 import "./PortfolioIntro.css";
 
 function PortfolioIntro({ onComplete, onMoveStart }) {
@@ -12,7 +11,7 @@ function PortfolioIntro({ onComplete, onMoveStart }) {
     const text = textRef.current;
     const targetInset = Math.min(40, Math.max(20, window.innerWidth * 0.03));
     const textBounds = text.getBoundingClientRect();
-    const animatedTitle = text.querySelector(".fold-text");
+    const animatedTitle = text.querySelector(".intro-title");
     const persistentTitle = document.querySelector(".portfolio-brand");
     const animatedFontSize = Number.parseFloat(window.getComputedStyle(animatedTitle).fontSize);
     const persistentFontSize = Number.parseFloat(window.getComputedStyle(persistentTitle).fontSize);
@@ -55,20 +54,7 @@ function PortfolioIntro({ onComplete, onMoveStart }) {
   return (
     <div ref={introRef} className="portfolio-intro">
       <div ref={textRef} className="portfolio-intro-text">
-        <FoldText
-          text="PORTFOLIO"
-          splitBy="char"
-          hinge="top"
-          trigger="mount"
-          duration={0.65}
-          stagger={0.06}
-          ease="power3.out"
-          perspective={700}
-          creaseShading={0.55}
-          fontSize="clamp(4rem, 12vw, 10rem)"
-          fontWeight={800}
-          color="#f7f2e8"
-        />
+        <span className="intro-title">VK</span>
       </div>
     </div>
   );
