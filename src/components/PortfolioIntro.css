@@ -30,6 +30,7 @@
   color: #f7f2e8;
   line-height: 0.95;
   letter-spacing: -0.04em;
+  opacity: 0;
 }
 
 @media (max-width: 480px) {

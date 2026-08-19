@@ -17,15 +17,25 @@ function PortfolioIntro({ onComplete, onMoveStart }) {
     const persistentFontSize = Number.parseFloat(window.getComputedStyle(persistentTitle).fontSize);
     const finalScale = persistentFontSize / animatedFontSize;
 
+    gsap.set(animatedTitle, { opacity: 0 });
+
     const timeline = gsap.timeline({
       onComplete: onComplete,
     });
 
     timeline
-      // Wait a little so the user can see PORTFOLIO
-      .to({}, { duration: 0.8 })
+      // Flicker 1: Off -> On -> Off
+      .to(animatedTitle, { opacity: 1, duration: 0.07 })
+      .to(animatedTitle, { opacity: 0.15, duration: 0.10 })
+      // Flicker 2: Off -> On -> Off
+      .to(animatedTitle, { opacity: 0.9, duration: 0.07 })
+      .to(animatedTitle, { opacity: 0.15, duration: 0.10 })
+      // Flicker 3: Off -> On (stable)
+      .to(animatedTitle, { opacity: 1, duration: 0.15 })
+      // Wait a little so the user can see VK fully on
+      .to({}, { duration: 0.2 })
 
-      // Move PORTFOLIO to top-left
+      // Move VK to top-left
       .to(text, {
         x: targetInset - textBounds.left,
         y: 20 - textBounds.top,
