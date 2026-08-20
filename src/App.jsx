@@ -90,7 +90,7 @@ function App() {
             speed={2.5}
             rayColor1="#EAB308"
             rayColor2="#96c8ff"
-            intensity={2}
+            intensity={2.5}
             spread={2}
             origin="top-right"
             tilt={0}
@@ -101,12 +101,28 @@ function App() {
           />
         </div>
 
-        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
-          <h2>About Me</h2>
-          <p>
-            I am a student developer working across full stack development, AI/ML, and cybersecurity. 
-            I love building things end-to-end and continuously discovering ways to make them better, more secure, and highly performant.
-          </p>
+        <div className={`about-container${!showIntro ? " is-visible" : ""}`}>
+          <div className="about-image-wrapper">
+            <img
+              src="/WhatsApp Image 2026-08-20 at 6.14.15 PM...png"
+              alt="Vedant Kalkundri"
+              className="about-image"
+            />
+          </div>
+
+          <div className="about-text-content">
+            <h2>About Me</h2>
+            <h3 className="about-name">I'm Vedant Kalkundri</h3>
+            <p>
+              A 20-year-old, third-year Information Science Engineering student passionate about software development, modern web technologies, artificial intelligence, and cybersecurity. I enjoy turning ideas into functional, engaging digital experiences while continuously exploring new technologies and building practical solutions.
+            </p>
+            <p>
+              Beyond academics, I actively participate in technical events, hackathons, and collaborative projects that challenge me to learn and think creatively. I also serve as <strong>Sergeant-at-Arms at the Rotaract Club of KLS GIT</strong>, where I contribute to organizing activities, coordinating events, and working with a team to create meaningful experiences.
+            </p>
+            <p>
+              I’m focused on growing as a developer through hands-on projects, competitions, leadership opportunities, and continuous learning. My goal is to build impactful technology, gain real-world experience, and keep challenging myself to become a better problem solver and developer.
+            </p>
+          </div>
         </div>
       </section>
 
