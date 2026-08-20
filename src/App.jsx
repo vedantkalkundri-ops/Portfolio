@@ -64,12 +64,11 @@ function App() {
       </a>
 
       <main className="portfolio">
-        <h1>Vedant Kalkundri</h1>
-
 
         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
 
         <div className={`portfolio-bottom-section${!showIntro ? " is-visible" : ""}`}>
+          <h1>Vedant Kalkundri</h1>
           <div className="portfolio-intro-line">
             A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better.
           </div>
