@@ -3,6 +3,7 @@ import MoltenMetal from "./components/MoltenMetal";
 import Lanyard from "./components/Lanyard";
 import PortfolioIntro from "./components/PortfolioIntro";
 import Navbar from "./components/Navbar";
+import SideRays from "./components/SideRays";
 import "./App.css";
 
 
@@ -26,28 +27,6 @@ function App() {
         />
       )}
 
-      <div className={`portfolio-background${showBackground ? " is-visible" : ""}${!showIntro ? " no-transition" : ""}`} aria-hidden="true">
-        <MoltenMetal
-          color1="#5227FF"
-          color2="#FF9FFC"
-          color3="#FFFFFF"
-          speed={0.35}
-          scale={4}
-          detail={3}
-          glow={1.6}
-          coreSize={0.1}
-          swirl={1}
-          fold={-0.2}
-          blackPoint={0.05}
-          brightness={1.3}
-          colorMode="molten"
-          grain
-          grainIntensity={0.05}
-          mouseInteraction
-          mouseStrength={0.3}
-        />
-      </div>
-
       <div className="portfolio-brand" aria-label="Portfolio">VK</div>
 
       <a
@@ -65,20 +44,101 @@ function App() {
       </a>
       <Navbar visible={!showIntro} />
 
-      <main className="portfolio">
-
-        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
-
-        <div className={`portfolio-bottom-section${!showIntro ? " is-visible" : ""}`}>
-          <h1>Vedant Kalkundri</h1>
-          <div className="portfolio-intro-line">
-            A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better.
-          </div>
-          <div className="portfolio-static-title">
-            PORTFOLIO
-          </div>
+      {/* Section 1: Home (MoltenMetal Background) */}
+      <section className="section-home" id="home">
+        <div className={`portfolio-background${showBackground ? " is-visible" : ""}${!showIntro ? " no-transition" : ""}`} aria-hidden="true">
+          <MoltenMetal
+            color1="#5227FF"
+            color2="#FF9FFC"
+            color3="#FFFFFF"
+            speed={0.35}
+            scale={4}
+            detail={3}
+            glow={1.6}
+            coreSize={0.1}
+            swirl={1}
+            fold={-0.2}
+            blackPoint={0.05}
+            brightness={1.3}
+            colorMode="molten"
+            grain
+            grainIntensity={0.05}
+            mouseInteraction
+            mouseStrength={0.3}
+          />
         </div>
-      </main>
+
+        <main className="portfolio">
+          <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} paused={showIntro} />
+
+          <div className={`portfolio-bottom-section${!showIntro ? " is-visible" : ""}`}>
+            <h1>Vedant Kalkundri</h1>
+            <div className="portfolio-intro-line">
+              A student developer working across full stack development, AI/ML, and cybersecurity. I like building things end to end — then figuring out how to make them better.
+            </div>
+            <div className="portfolio-static-title">
+              PORTFOLIO
+            </div>
+          </div>
+        </main>
+      </section>
+
+      {/* Section 2: About (SideRays Background) */}
+      <section className="section-about" id="about">
+        <div className="rays-background" aria-hidden="true">
+          <SideRays
+            speed={2.5}
+            rayColor1="#EAB308"
+            rayColor2="#96c8ff"
+            intensity={2}
+            spread={2}
+            origin="top-right"
+            tilt={0}
+            saturation={1.5}
+            blend={0.75}
+            falloff={1.6}
+            opacity={1}
+          />
+        </div>
+
+        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+          <h2>About Me</h2>
+          <p>
+            I am a student developer working across full stack development, AI/ML, and cybersecurity. 
+            I love building things end-to-end and continuously discovering ways to make them better, more secure, and highly performant.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 3: Projects (Placeholder Section) */}
+      <section className="section-about" id="projects">
+        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+          <h2>Projects</h2>
+          <p>
+            Here are some of my featured projects. I build end-to-end applications combining modern frontends with secure, robust backends.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 4: Experience (Placeholder Section) */}
+      <section className="section-about" id="experience">
+        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+          <h2>Experience</h2>
+          <p>
+            I have worked on various academic and professional projects focusing on AI/ML applications, full stack architectures, and penetration testing.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 5: Contact (Placeholder Section) */}
+      <section className="section-about" id="contact">
+        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+          <h2>Contact</h2>
+          <p>
+            Feel free to reach out to discuss work opportunities, projects, or collaborations. You can find me on GitHub or send a message.
+          </p>
+        </div>
+      </section>
     </>
   );
 }
