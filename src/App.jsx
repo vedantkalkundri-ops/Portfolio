@@ -114,7 +114,7 @@ function App() {
             <h2>About Me</h2>
             <h3 className="about-name">I'm Vedant Kalkundri</h3>
             <p>
-              A 20-year-old, third-year Information Science Engineering student passionate about software development, modern web technologies, artificial intelligence, and cybersecurity. I enjoy turning ideas into functional, engaging digital experiences while continuously exploring new technologies and building practical solutions.
+              A third-year Information Science Engineering student passionate about software development, modern web technologies, artificial intelligence, and cybersecurity. I enjoy turning ideas into functional, engaging digital experiences while continuously exploring new technologies and building practical solutions.
             </p>
             <p>
               Beyond academics, I actively participate in technical events, hackathons, and collaborative projects that challenge me to learn and think creatively. I also serve as <strong>Sergeant-at-Arms at the Rotaract Club of KLS GIT</strong>, where I contribute to organizing activities, coordinating events, and working with a team to create meaningful experiences.

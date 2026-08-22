@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 
-const navItems = ["Home", "About", "Projects", "Experience", "Contact"];
+const navItems = ["Home", "About", "Skills", "Projects", "Experience", "Contact"];
 
 export default function Navbar({ visible }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -33,6 +33,11 @@ export default function Navbar({ visible }) {
   const handleLinkClick = (e, index) => {
     e.preventDefault();
     setActiveIndex(index);
+    const targetSectionId = navItems[index].toLowerCase();
+    const sectionElement = document.getElementById(targetSectionId);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
