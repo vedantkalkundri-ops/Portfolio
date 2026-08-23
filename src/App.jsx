@@ -4,6 +4,8 @@ import Lanyard from "./components/Lanyard";
 import PortfolioIntro from "./components/PortfolioIntro";
 import Navbar from "./components/Navbar";
 import SideRays from "./components/SideRays";
+import CardSwap, { Card } from "./components/CardSwap";
+import { Code2, Database, Cpu, ShieldCheck } from "lucide-react";
 import "./App.css";
 
 
@@ -126,11 +128,117 @@ function App() {
         </div>
       </section>
 
-      {/* Section 3: skills (Placeholder Section) */}
-      <section className="section-standard" id="skills">
-        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
-          <h2>Skills</h2>
+      {/* Section 2.5: Education & Achievements */}
+      <section className="section-standard" id="education">
+        <div className={`edu-ach-container${!showIntro ? " is-visible" : ""}`}>
 
+          {/* Education Column (Left) */}
+          <div className="edu-column">
+            <h2>Education</h2>
+            <div className="timeline">
+              <div className="edu-item">
+                <div className="edu-logo-wrapper">
+                  <img src="/kls_git_logo.webp" alt="KLS Gogte Institute of Technology" className="edu-logo" />
+                </div>
+                <div className="edu-content">
+                  <span className="edu-date">Bachelor of Engineering</span>
+                  <h3>KLS Gogte Institute of Technology, Belagavi</h3>
+                  <p className="edu-degree">Information Science & Engineering</p>
+                </div>
+              </div>
+              <div className="edu-item">
+                <div className="edu-logo-wrapper">
+                  <img src="/klsvpp.jpeg" alt="KLS Shri Vasantrao Potdar Polytechnic" className="edu-logo" />
+                </div>
+                <div className="edu-content">
+                  <span className="edu-date">Diploma</span>
+                  <h3>KLS Shri Vasantrao Potdar Polytechnic, Belagavi</h3>
+                  <p className="edu-degree">Computer Science & Engineering</p>
+                </div>
+              </div>
+              <div className="edu-item">
+                <div className="edu-logo-wrapper">
+                  <img src="/stpauls.png" alt="St Paul's High School" className="edu-logo" />
+                </div>
+                <div className="edu-content">
+                  <span className="edu-date">Schooling</span>
+                  <h3>St Paul's High School, Belagavi</h3>
+                  <p className="edu-degree">Secondary Education / High Schooling</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Achievements Column (Right) */}
+          <div className="ach-column">
+            <h2>Achievements</h2>
+            <div className="achievements-list">
+              <div className="ach-item">
+                <div className="ach-bullet"></div>
+                <div className="ach-content">
+                  <h3>Won 2nd Prize</h3>
+                  <span className="ach-org">Impactathon 2026 | Organized by Rotaract Club of GIT</span>
+                  <p className="ach-project">Project: <strong>Smart Campus Navigation & Utility bot</strong></p>
+                </div>
+              </div>
+
+              <div className="ach-item">
+                <div className="ach-bullet"></div>
+                <div className="ach-content">
+                  <h3>Top 10 Finalist</h3>
+                  <span className="ach-org">CODECLIPSE Hackathon | KLE Technological University, Belagavi</span>
+                  <p className="ach-desc">Placed in the top 10 teams out of 250+ competing teams.</p>
+                </div>
+              </div>
+
+              <div className="ach-item">
+                <div className="ach-bullet"></div>
+                <div className="ach-content">
+                  <h3>Sergeant-at-Arms</h3>
+                  <span className="ach-org">Rotaract Club of Gogte Institute of Technology (2026 - 2027)</span>
+                  <p className="ach-desc">Elected leadership position managing administrative duties, coordination, and team dynamics.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 3: skills (CardSwap Showcase) */}
+      <section className="section-standard" id="skills">
+        <div className={`skills-container${!showIntro ? " is-visible" : ""}`}>
+          <div className="skills-text-content">
+            <h2>Skills</h2>
+            <p>
+              I specialize in building full-stack applications, designing interactive and high-performance frontends, training machine learning models, and assessing security vulnerabilities.
+            </p>
+            <p>
+              Explore the interactive deck on the right to see my technical stack and expertise categorized across key domains. Hover to pause or click to swap cards!
+            </p>
+          </div>
+
+          <div className="skills-visual-content">
+            <CardSwap
+              cardDistance={60}
+              verticalDistance={70}
+              delay={5000}
+              pauseOnHover={false}
+            >
+              <Card>
+                <h3>Card 1</h3>
+                <p>Your content here</p>
+              </Card>
+              <Card>
+                <h3>Card 2</h3>
+                <p>Your content here</p>
+              </Card>
+              <Card>
+                <h3>Card 3</h3>
+                <p>Your content here</p>
+              </Card>
+            </CardSwap>
+          </div>
         </div>
       </section>
 

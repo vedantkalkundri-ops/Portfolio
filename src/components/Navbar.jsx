@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 
-const navItems = ["Home", "About", "Skills", "Projects", "Experience", "Contact"];
+const navItems = ["Home", "About", "Education", "Skills", "Projects", "Contact"];
 
 export default function Navbar({ visible }) {
   const [activeIndex, setActiveIndex] = useState(0);
