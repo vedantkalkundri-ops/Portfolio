@@ -131,10 +131,13 @@ function App() {
       {/* Section 2.5: Education & Achievements */}
       <section className="section-standard" id="education">
         <div className={`edu-ach-container${!showIntro ? " is-visible" : ""}`}>
+          <div className="edu-ach-header">
+            <h2 className="edu-ach-title">Foundation & Milestones</h2>
+          </div>
 
           {/* Education Column (Left) */}
           <div className="edu-column">
-            <h2>Education</h2>
+            <h3 className="column-subtitle">Education</h3>
             <div className="timeline">
               <div className="edu-item">
                 <div className="edu-logo-wrapper">
@@ -171,7 +174,7 @@ function App() {
 
           {/* Achievements Column (Right) */}
           <div className="ach-column">
-            <h2>Achievements</h2>
+            <h3 className="column-subtitle">Achievements</h3>
             <div className="achievements-list">
               <div className="ach-item">
                 <div className="ach-bullet"></div>

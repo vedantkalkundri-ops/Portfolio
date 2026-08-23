@@ -469,7 +469,7 @@ body {
 /* Education & Achievements Grid */
 .edu-ach-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.75fr;
   gap: clamp(3rem, 6vw, 5rem);
   width: 100%;
   max-width: 76rem;
@@ -485,7 +485,7 @@ body {
 .edu-ach-container.is-visible {
   opacity: 1;
   transform: translateY(0);
-  margin-top: 1rem;
+
 }
 
 .edu-column {
@@ -504,14 +504,32 @@ body {
   width: 100%;
 }
 
-.edu-column h2,
-.ach-column h2 {
+.edu-ach-header {
+  grid-column: 1 / span 2;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.edu-ach-title {
   font-family: 'REVERIE', sans-serif;
-  font-size: clamp(2.5rem, 4vw, 3rem);
+  font-size: clamp(3rem, 8vw, 5.5rem);
   color: #f7f2e8;
-  margin-bottom: 2rem;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.column-subtitle {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  margin-top: 0;
 }
 
 /* Education List (No vertical line, logos instead) */
@@ -543,24 +561,27 @@ body {
 }
 
 .edu-logo-wrapper {
+  position: relative;
   background: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 6px;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
-  width: 52px;
-  height: 52px;
+  width: 72px;
+  height: 72px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 9px;
 }
 
 .edu-logo {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 85%;
+  max-height: 85%;
   object-fit: contain;
+  display: block;
 }
 
 .edu-content {
