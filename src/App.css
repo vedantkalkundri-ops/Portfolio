@@ -541,24 +541,34 @@ body {
   width: 100%;
 }
 
-.edu-item {
+.edu-item-star-border {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.edu-item-star-border:hover {
+  transform: translateY(-2px);
+}
+
+.edu-item-star-border .inner-content {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(10, 10, 10, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 0.75rem 1rem;
   width: 100%;
-  transition: all 0.3s ease;
   text-align: left;
+  transition: all 0.3s ease;
 }
 
-.edu-item:hover {
-  background: rgba(255, 255, 255, 0.04);
+.edu-item-star-border:hover .inner-content {
+  background: rgba(20, 20, 20, 0.98);
   border-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
 }
 
 .edu-logo-wrapper {

@@ -5,6 +5,7 @@ import PortfolioIntro from "./components/PortfolioIntro";
 import Navbar from "./components/Navbar";
 import SideRays from "./components/SideRays";
 import CardSwap, { Card } from "./components/CardSwap";
+import StarBorder from "./components/StarBorder";
 import { Code2, Database, Cpu, ShieldCheck } from "lucide-react";
 import "./App.css";
 
@@ -139,7 +140,7 @@ function App() {
           <div className="edu-column">
             <h3 className="column-subtitle">Education</h3>
             <div className="timeline">
-              <div className="edu-item">
+              <StarBorder as="div" className="edu-item-star-border" color="#9b4ceaff" speed="4s" thickness={1.5}>
                 <div className="edu-logo-wrapper">
                   <img src="/kls_git_logo.webp" alt="KLS Gogte Institute of Technology" className="edu-logo" />
                 </div>
@@ -148,8 +149,8 @@ function App() {
                   <h3>KLS Gogte Institute of Technology, Belagavi</h3>
                   <p className="edu-degree">Information Science & Engineering</p>
                 </div>
-              </div>
-              <div className="edu-item">
+              </StarBorder>
+              <StarBorder as="div" className="edu-item-star-border" color="#9b4ceaff" speed="4s" thickness={1.5}>
                 <div className="edu-logo-wrapper">
                   <img src="/klsvpp.jpeg" alt="KLS Shri Vasantrao Potdar Polytechnic" className="edu-logo" />
                 </div>
@@ -158,8 +159,8 @@ function App() {
                   <h3>KLS Shri Vasantrao Potdar Polytechnic, Belagavi</h3>
                   <p className="edu-degree">Computer Science & Engineering</p>
                 </div>
-              </div>
-              <div className="edu-item">
+              </StarBorder>
+              <StarBorder as="div" className="edu-item-star-border" color="#9b4ceaff" speed="4s" thickness={1.5}>
                 <div className="edu-logo-wrapper">
                   <img src="/stpauls.png" alt="St Paul's High School" className="edu-logo" />
                 </div>
@@ -168,7 +169,7 @@ function App() {
                   <h3>St Paul's High School, Belagavi</h3>
                   <p className="edu-degree">Secondary Education / High Schooling</p>
                 </div>
-              </div>
+              </StarBorder>
             </div>
           </div>
 
