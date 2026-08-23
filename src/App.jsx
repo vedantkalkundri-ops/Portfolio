@@ -126,8 +126,16 @@ function App() {
         </div>
       </section>
 
-      {/* Section 3: Projects (Placeholder Section) */}
-      <section className="section-about" id="projects">
+      {/* Section 3: skills (Placeholder Section) */}
+      <section className="section-standard" id="skills">
+        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+          <h2>Skills</h2>
+
+        </div>
+      </section>
+
+      {/* Section 4: Projects (Placeholder Section) */}
+      <section className="section-standard" id="projects">
         <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
           <h2>Projects</h2>
           <p>
@@ -136,8 +144,8 @@ function App() {
         </div>
       </section>
 
-      {/* Section 4: Experience (Placeholder Section) */}
-      <section className="section-about" id="experience">
+      {/* Section 6: Experience (Placeholder Section) */}
+      <section className="section-standard" id="experience">
         <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
           <h2>Experience</h2>
           <p>
@@ -146,8 +154,8 @@ function App() {
         </div>
       </section>
 
-      {/* Section 5: Contact (Placeholder Section) */}
-      <section className="section-about" id="contact">
+      {/* Section 7: Contact (Placeholder Section) */}
+      <section className="section-standard" id="contact">
         <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
           <h2>Contact</h2>
           <p>
