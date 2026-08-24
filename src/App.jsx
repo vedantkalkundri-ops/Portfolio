@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import SideRays from "./components/SideRays";
 import CardSwap, { Card } from "./components/CardSwap";
 import StarBorder from "./components/StarBorder";
-import { Code2, Database, Cpu, ShieldCheck } from "lucide-react";
+import { Code2, Database, Cpu, ShieldCheck, Briefcase } from "lucide-react";
 import "./App.css";
 
 
@@ -230,16 +230,41 @@ function App() {
               pauseOnHover={false}
             >
               <Card>
-                <h3>Card 1</h3>
-                <p>Your content here</p>
+                <div className="card-icon-container">
+                  <Code2 size={36} strokeWidth={1.5} color="#c084fc" />
+                </div>
+                <h3>Full-Stack Development</h3>
+                <p>Designing interactive user interfaces, building server-side functionality, and working with databases to create complete web applications.</p>
+                <div className="card-skills-tags">
+                  <span>Frontend</span>
+                  <span>Backend</span>
+                  <span>Database</span>
+                </div>
               </Card>
               <Card>
-                <h3>Card 2</h3>
-                <p>Your content here</p>
+                <div className="card-icon-container">
+                  <Cpu size={36} strokeWidth={1.5} color="#c084fc" />
+                </div>
+                <h3>Exploring AI & Cybersecurity</h3>
+                <p>Currently exploring artificial intelligence, generative AI, machine learning concepts, and cybersecurity to expand my technical knowledge.</p>
+                <div className="card-skills-tags">
+                  <span>AI/ML</span>
+                  <span>Generative AI</span>
+                  <span>LLMs</span>
+                  <span>Cybersecurity</span>
+                </div>
               </Card>
               <Card>
-                <h3>Card 3</h3>
-                <p>Your content here</p>
+                <div className="card-icon-container">
+                  <Briefcase size={36} strokeWidth={1.5} color="#c084fc" />
+                </div>
+                <h3>Freelance & Client Projects</h3>
+                <p>Working on real-world projects, understanding client requirements, and delivering functional, high-quality solutions.</p>
+                <div className="card-skills-tags">
+                  <span>Real-World Projects</span>
+                  <span>Client Requirements</span>
+                  <span>Problem Solving</span>
+                </div>
               </Card>
             </CardSwap>
           </div>

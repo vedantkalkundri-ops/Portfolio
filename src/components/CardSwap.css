@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/gloock-2');
+
 .card-swap-container {
   position: absolute;
   top: 50%;
@@ -39,6 +41,7 @@
 }
 
 .card h3 {
+  font-family: 'Gloock', sans-serif;
   font-size: 1.6rem;
   margin-top: 0;
   margin-bottom: 0.75rem;
@@ -50,6 +53,44 @@
   color: #ccc;
   margin: 0;
   line-height: 1.5;
+}
+
+.card-icon-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(192, 132, 252, 0.06);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(192, 132, 252, 0.15);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.card:hover .card-icon-container {
+  transform: scale(1.05);
+  border-color: rgba(192, 132, 252, 0.35);
+  background: rgba(192, 132, 252, 0.1);
+}
+
+.card-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  max-width: 90%;
+}
+
+.card-skills-tags span {
+  font-size: 0.725rem;
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.08);
+  border: 1px solid rgba(192, 132, 252, 0.15);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 @media (max-width: 992px) {
