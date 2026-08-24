@@ -214,12 +214,113 @@ function App() {
         <div className={`skills-container${!showIntro ? " is-visible" : ""}`}>
           <div className="skills-text-content">
             <h2>Skills</h2>
-            <p>
-              I specialize in building full-stack applications, designing interactive and high-performance frontends, training machine learning models, and assessing security vulnerabilities.
-            </p>
-            <p>
-              Explore the interactive deck on the right to see my technical stack and expertise categorized across key domains. Hover to pause or click to swap cards!
-            </p>
+            <h3 className="skills-subtitle">Technology</h3>
+            <div className="skills-logos-grid">
+              <div className="skills-logo-item">
+                <img src="/Python-Software-Foundation-Emblem.png" alt="Python" />
+                <span>Python</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/JavaScript-Symbol.png" alt="JavaScript" />
+                <span>JavaScript</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/java-programming-language-java-logo-free-png.webp" alt="Java" />
+                <span>Java</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/react.png" alt="React" />
+                <span>React</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/nodejs.png" alt="Node.js" />
+                <span>Node.js</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/MySQL-Logo.wine.png" alt="MySQL" />
+                <span>MySQL</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/HTML5_logo_and_wordmark.svg.webp" alt="HTML5" />
+                <span>HTML5</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/CSS-Logo-2011.png" alt="CSS3" />
+                <span>CSS3</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Git_icon.svg.webp" alt="Git" />
+                <span>Git</span>
+              </div>
+            </div>
+
+            <h3 className="skills-subtitle">Software Tools</h3>
+            <div className="skills-logos-grid">
+              <div className="skills-logo-item">
+                <img src="/vscode.jpeg" alt="VSCode" />
+                <span>VSCode</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/figma.png" alt="Figma" />
+                <span>Figma</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Adobe_Photoshop_CC_icon.svg.webp" alt="Photoshop" />
+                <span>Photoshop</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Canva-logo.png" alt="Canva" />
+                <span>Canva</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Kali-dragon-icon.svg.webp" alt="Kali Linux" />
+                <span>Kali Linux</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/BurpSuite_Comunity_Edition.svg.webp" alt="BurpSuite" />
+                <span>BurpSuite</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/OWASP_ZAP_logo.svg.webp" alt="OWASP ZAP" />
+                <span>OWASP ZAP</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Wireshark_icon_new.png" alt="Wireshark" />
+                <span>Wireshark</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/nmap-logo@2x.jpg" alt="Nmap" />
+                <span>Nmap</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Octicons-mark-github.svg" alt="GitHub" />
+                <span>GitHub</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/ChatGPT-Logo.png" alt="ChatGPT" />
+                <span>ChatGPT</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Google_Gemini_icon_2025.svg.webp" alt="Gemini" />
+                <span>Gemini</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/claude_logo.jpeg" alt="Claude" />
+                <span>Claude</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Vercel-Emblem.png" alt="Vercel" />
+                <span>Vercel</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/ubuntu.svg" alt="Ubuntu" />
+                <span>Ubuntu</span>
+              </div>
+              <div className="skills-logo-item">
+                <img src="/Gamma-App.webp" alt="Gamma" />
+                <span>Gamma</span>
+              </div>
+            </div>
           </div>
 
           <div className="skills-visual-content">
