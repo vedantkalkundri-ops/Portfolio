@@ -224,8 +224,8 @@ function App() {
 
           <div className="skills-visual-content">
             <CardSwap
-              cardDistance={60}
-              verticalDistance={70}
+              cardDistance={40}
+              verticalDistance={40}
               delay={5000}
               pauseOnHover={false}
             >

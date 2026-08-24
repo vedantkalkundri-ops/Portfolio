@@ -1,9 +1,9 @@
 .card-swap-container {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: translate(5%, 20%);
-  transform-origin: bottom right;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
 
   perspective: 900px;
   overflow: visible;
@@ -13,9 +13,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  border-radius: 12px;
-  border: 1px solid #fff;
-  background: #000;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgb(18, 18, 18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   padding: 2.2rem;
   display: flex;
   flex-direction: column;
@@ -27,6 +30,12 @@
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(192, 132, 252, 0.45);
+  box-shadow: 0 15px 40px rgba(192, 132, 252, 0.15), 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .card h3 {
@@ -43,14 +52,20 @@
   line-height: 1.5;
 }
 
+@media (max-width: 992px) {
+  .card-swap-container {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+}
+
 @media (max-width: 768px) {
   .card-swap-container {
-    transform: scale(0.75) translate(25%, 25%);
+    transform: translate(-50%, -50%) scale(0.70);
   }
 }
 
 @media (max-width: 480px) {
   .card-swap-container {
-    transform: scale(0.55) translate(25%, 25%);
+    transform: translate(-50%, -50%) scale(0.55);
   }
 }
