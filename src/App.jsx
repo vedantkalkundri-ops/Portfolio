@@ -6,10 +6,46 @@ import Navbar from "./components/Navbar";
 import SideRays from "./components/SideRays";
 import CardSwap, { Card } from "./components/CardSwap";
 import StarBorder from "./components/StarBorder";
+import Dock from "./components/Dock";
 import { Code2, Database, Cpu, ShieldCheck, Briefcase } from "lucide-react";
 import "./App.css";
 
 
+
+const techItems = [
+  { icon: <img src="/Python-Software-Foundation-Emblem.png" alt="Python" />, label: "Python" },
+  { icon: <img src="/java-programming-language-java-logo-free-png.webp" alt="Java" />, label: "Java" },
+  { icon: <img src="/MySQL-Logo.wine.png" alt="MySQL" />, label: "MySQL" },
+  { icon: <img src="/HTML5_logo_and_wordmark.svg.webp" alt="HTML5" />, label: "HTML5" },
+  { icon: <img src="/CSS-Logo-2011.png" alt="CSS3" />, label: "CSS3" },
+  { icon: <img src="/JavaScript-Symbol.png" alt="JavaScript" />, label: "JavaScript" },
+  { icon: <img src="/react.png" alt="React" />, label: "React" },
+  { icon: <img src="/nodejs.png" alt="Node.js" />, label: "Node.js" },
+  { icon: <img src="/Git_icon.svg.webp" alt="Git" />, label: "Git" }
+];
+
+const toolItems1 = [
+  { icon: <img src="/vscode.jpeg" alt="VSCode" />, label: "VSCode" },
+  { icon: <img src="/Kali-dragon-icon.svg.webp" alt="Kali Linux" />, label: "Kali Linux" },
+  { icon: <img src="/ubuntu.svg" alt="Ubuntu" />, label: "Ubuntu" },
+  { icon: <img src="/Octicons-mark-github.svg" alt="GitHub" />, label: "GitHub" },
+  { icon: <img src="/BurpSuite_Comunity_Edition.svg.webp" alt="BurpSuite" />, label: "BurpSuite" },
+  { icon: <img src="/OWASP_ZAP_logo.svg.webp" alt="OWASP ZAP" />, label: "OWASP ZAP" },
+  { icon: <img src="/nmap-logo@2x.jpg" alt="Nmap" />, label: "Nmap" },
+  { icon: <img src="/Wireshark_icon_new.png" alt="Wireshark" />, label: "Wireshark" },
+  { icon: <img src="/Adobe_Photoshop_CC_icon.svg.webp" alt="Photoshop" />, label: "Photoshop" }
+];
+
+const toolItems2 = [
+  { icon: <img src="/figma.png" alt="Figma" />, label: "Figma" },
+  { icon: <img src="/Canva-logo.png" alt="Canva" />, label: "Canva" },
+  { icon: <img src="/Gamma-App.webp" alt="Gamma" />, label: "Gamma" },
+  { icon: <img src="/Vercel-Emblem.png" alt="Vercel" />, label: "Vercel" },
+  { icon: <img src="/ChatGPT-Logo.png" alt="ChatGPT" />, label: "ChatGPT" },
+  { icon: <img src="/Google_Gemini_icon_2025.svg.webp" alt="Gemini" />, label: "Gemini" },
+  { icon: <img src="/claude_logo.jpeg" alt="Claude" />, label: "Claude" },
+  { icon: <img src="/antigravity-icon__full-color.png" alt="Antigravity" />, label: "Antigravity" }
+];
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -215,112 +251,11 @@ function App() {
           <div className="skills-text-content">
             <h2>Skills</h2>
             <h3 className="skills-subtitle">Technology</h3>
-            <div className="skills-logos-grid">
-              <div className="skills-logo-item">
-                <img src="/Python-Software-Foundation-Emblem.png" alt="Python" />
-                <span>Python</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/JavaScript-Symbol.png" alt="JavaScript" />
-                <span>JavaScript</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/java-programming-language-java-logo-free-png.webp" alt="Java" />
-                <span>Java</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/react.png" alt="React" />
-                <span>React</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/nodejs.png" alt="Node.js" />
-                <span>Node.js</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/MySQL-Logo.wine.png" alt="MySQL" />
-                <span>MySQL</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/HTML5_logo_and_wordmark.svg.webp" alt="HTML5" />
-                <span>HTML5</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/CSS-Logo-2011.png" alt="CSS3" />
-                <span>CSS3</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Git_icon.svg.webp" alt="Git" />
-                <span>Git</span>
-              </div>
-            </div>
+            <Dock items={techItems} baseItemSize={50} magnification={70} />
 
             <h3 className="skills-subtitle">Software Tools</h3>
-            <div className="skills-logos-grid">
-              <div className="skills-logo-item">
-                <img src="/vscode.jpeg" alt="VSCode" />
-                <span>VSCode</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/figma.png" alt="Figma" />
-                <span>Figma</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Adobe_Photoshop_CC_icon.svg.webp" alt="Photoshop" />
-                <span>Photoshop</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Canva-logo.png" alt="Canva" />
-                <span>Canva</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Kali-dragon-icon.svg.webp" alt="Kali Linux" />
-                <span>Kali Linux</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/BurpSuite_Comunity_Edition.svg.webp" alt="BurpSuite" />
-                <span>BurpSuite</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/OWASP_ZAP_logo.svg.webp" alt="OWASP ZAP" />
-                <span>OWASP ZAP</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Wireshark_icon_new.png" alt="Wireshark" />
-                <span>Wireshark</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/nmap-logo@2x.jpg" alt="Nmap" />
-                <span>Nmap</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Octicons-mark-github.svg" alt="GitHub" />
-                <span>GitHub</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/ChatGPT-Logo.png" alt="ChatGPT" />
-                <span>ChatGPT</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Google_Gemini_icon_2025.svg.webp" alt="Gemini" />
-                <span>Gemini</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/claude_logo.jpeg" alt="Claude" />
-                <span>Claude</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Vercel-Emblem.png" alt="Vercel" />
-                <span>Vercel</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/ubuntu.svg" alt="Ubuntu" />
-                <span>Ubuntu</span>
-              </div>
-              <div className="skills-logo-item">
-                <img src="/Gamma-App.webp" alt="Gamma" />
-                <span>Gamma</span>
-              </div>
-            </div>
+            <Dock items={toolItems1} baseItemSize={50} magnification={70} />
+            <Dock items={toolItems2} baseItemSize={50} magnification={70} />
           </div>
 
           <div className="skills-visual-content">
