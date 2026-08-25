@@ -21,6 +21,7 @@ const techItems = [
   { icon: <img src="/JavaScript-Symbol.png" alt="JavaScript" />, label: "JavaScript" },
   { icon: <img src="/react.png" alt="React" />, label: "React" },
   { icon: <img src="/nodejs.png" alt="Node.js" />, label: "Node.js" },
+  { icon: <img src="/php-logo-png-php-logo-png-white.png" alt="PHP" />, label: "PHP" },
   { icon: <img src="/Git_icon.svg.webp" alt="Git" />, label: "Git" }
 ];
 
@@ -28,23 +29,23 @@ const toolItems1 = [
   { icon: <img src="/vscode-logo.webp" alt="VSCode" />, label: "VSCode" },
   { icon: <img src="/Kali-dragon-icon.svg.webp" alt="Kali Linux" />, label: "Kali Linux" },
   { icon: <img src="/ubuntu.svg" alt="Ubuntu" />, label: "Ubuntu" },
-  { icon: <img src="/github-white-icon.webp" alt="GitHub" />, label: "GitHub" },
   { icon: <img src="/BurpSuite_Comunity_Edition.svg.webp" alt="BurpSuite" />, label: "BurpSuite" },
   { icon: <img src="/zap.png" alt="OWASP ZAP" />, label: "OWASP ZAP" },
   { icon: <img src="/nmap-logo.png" alt="Nmap" />, label: "Nmap" },
   { icon: <img src="/Wireshark_icon_new.png" alt="Wireshark" />, label: "Wireshark" },
-  { icon: <img src="/Adobe_Photoshop_CC_icon.svg.webp" alt="Photoshop" />, label: "Photoshop" }
+  { icon: <img src="/Adobe_Photoshop_CC_icon.svg.webp" alt="Photoshop" />, label: "Photoshop" },
+  { icon: <img src="/figma.png" alt="Figma" />, label: "Figma" }
 ];
 
 const toolItems2 = [
-  { icon: <img src="/figma.png" alt="Figma" />, label: "Figma" },
   { icon: <img src="/Canva-logo.png" alt="Canva" />, label: "Canva" },
   { icon: <img src="/gamma.png" alt="Gamma" />, label: "Gamma" },
-  { icon: <img src="/vercel.png" alt="Vercel" />, label: "Vercel" },
   { icon: <img src="/new-ChatGPT-icon-white-png-large-size.png" alt="ChatGPT" />, label: "ChatGPT" },
   { icon: <img src="/Google_Gemini_icon_2025.svg.webp" alt="Gemini" />, label: "Gemini" },
   { icon: <img src="/claude_logo.jpeg" alt="Claude" />, label: "Claude" },
-  { icon: <img src="/antigravity-icon__full-color.png" alt="Antigravity" />, label: "Antigravity" }
+  { icon: <img src="/antigravity-icon__full-color.png" alt="Antigravity" />, label: "Antigravity" },
+  { icon: <img src="/github-white-icon.webp" alt="GitHub" />, label: "GitHub" },
+  { icon: <img src="/vercel.png" alt="Vercel" />, label: "Vercel" }
 ];
 
 function App() {
