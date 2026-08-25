@@ -96,7 +96,7 @@ export default function Dock({
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
 
-  const fixedHeight = 70;
+  const fixedHeight = useMemo(() => baseItemSize + 20, [baseItemSize]);
 
   return (
     <div

@@ -14,7 +14,7 @@ import "./App.css";
 
 const techItems = [
   { icon: <img src="/Python-Software-Foundation-Emblem.png" alt="Python" />, label: "Python" },
-  { icon: <img src="/java-programming-language-java-logo-free-png.webp" alt="Java" />, label: "Java" },
+  { icon: <img src="/java-programming-language-java-logo-free-png.png" alt="Java" />, label: "Java" },
   { icon: <img src="/MySQL-Logo.wine.png" alt="MySQL" />, label: "MySQL" },
   { icon: <img src="/HTML5_logo.png" alt="HTML5" />, label: "HTML5" },
   { icon: <img src="/CSS-Logo-2011.png" alt="CSS3" />, label: "CSS3" },
@@ -251,11 +251,11 @@ function App() {
           <div className="skills-text-content">
             <h2>Skills</h2>
             <h3 className="skills-subtitle">Technology</h3>
-            <Dock items={techItems} baseItemSize={50} magnification={70} />
+            <Dock items={techItems} baseItemSize={60} magnification={80} />
 
             <h3 className="skills-subtitle">Software Tools</h3>
-            <Dock items={toolItems1} baseItemSize={50} magnification={70} />
-            <Dock items={toolItems2} baseItemSize={50} magnification={70} />
+            <Dock items={toolItems1} baseItemSize={60} magnification={80} />
+            <Dock items={toolItems2} baseItemSize={60} magnification={80} />
           </div>
 
           <div className="skills-visual-content">
