@@ -7,6 +7,7 @@ import SideRays from "./components/SideRays";
 import CardSwap, { Card } from "./components/CardSwap";
 import StarBorder from "./components/StarBorder";
 import Dock from "./components/Dock";
+import AccordionGallery from "./components/AccordionGallery";
 import { Code2, Database, Cpu, ShieldCheck, Briefcase } from "lucide-react";
 import "./App.css";
 
@@ -46,6 +47,14 @@ const toolItems2 = [
   { icon: <img src="/antigravity-icon__full-color.png" alt="Antigravity" />, label: "Antigravity" },
   { icon: <img src="/github-white-icon.webp" alt="GitHub" />, label: "GitHub" },
   { icon: <img src="/vercel.png" alt="Vercel" />, label: "Vercel" }
+];
+
+const projectItems = [
+  { image: 'https://picsum.photos/id/1015/900/1200', label: 'Smart Campus Navigation', link: '#' },
+  { image: 'https://picsum.photos/id/1018/900/1200', label: 'Pentesting Toolkit', link: '#' },
+  { image: 'https://picsum.photos/id/1039/900/1200', label: 'AI/ML Utility Bot', link: '#' },
+  { image: 'https://picsum.photos/id/1043/900/1200', label: 'Full-Stack Portfolio', link: '#' },
+  { image: 'https://picsum.photos/id/1044/900/1200', label: 'Secure Auth Gateway', link: '#' }
 ];
 
 function App() {
@@ -310,11 +319,31 @@ function App() {
 
       {/* Section 4: Projects (Placeholder Section) */}
       <section className="section-standard" id="projects">
-        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s', width: '100%' }}>
           <h2>Projects</h2>
-          <p>
+          <p style={{ marginBottom: '2rem' }}>
             Here are some of my featured projects. I build end-to-end applications combining modern frontends with secure, robust backends.
           </p>
+          <AccordionGallery
+            items={projectItems}
+            defaultIndex={2}
+            expandRatio={0.52}
+            trigger="hover"
+            accentColor="#ffffff"
+            overlayColor="#060010"
+            textColor="#ffffff"
+            grayscale
+            showLabels
+            duration={0.6}
+            ease="power3.out"
+            parallax={0.5}
+            tilt={8}
+            stagger={0.06}
+            height={460}
+            gap={10}
+            radius={16}
+            orientation="horizontal"
+          />
         </div>
       </section>
 
