@@ -319,11 +319,9 @@ function App() {
 
       {/* Section 4: Projects (Placeholder Section) */}
       <section className="section-standard" id="projects">
-        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s', width: '100%' }}>
+        <div className={`projects-container${!showIntro ? " is-visible" : ""}`}>
           <h2>Projects</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            Here are some of my featured projects. I build end-to-end applications combining modern frontends with secure, robust backends.
-          </p>
+
           <AccordionGallery
             items={projectItems}
             defaultIndex={2}
@@ -347,17 +345,7 @@ function App() {
         </div>
       </section>
 
-      {/* Section 6: Experience (Placeholder Section) */}
-      <section className="section-standard" id="experience">
-        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
-          <h2>Experience</h2>
-          <p>
-            I have worked on various academic and professional projects focusing on AI/ML applications, full stack architectures, and penetration testing.
-          </p>
-        </div>
-      </section>
-
-      {/* Section 7: Contact (Placeholder Section) */}
+      {/* Section 5: Contact (Placeholder Section) */}
       <section className="section-standard" id="contact">
         <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
           <h2>Contact</h2>
