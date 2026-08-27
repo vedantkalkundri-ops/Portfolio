@@ -52,31 +52,36 @@ const toolItems2 = [
 const projectItems = [
   {
     video: "/Sylvah Group _ Real Estate Company in Belagavi,Hubli & Dharwad - Google Chrome 2026-08-27 17-08-37.mp4",
-    image: "https://picsum.photos/id/1015/900/1200",
+    images: ["/Sylvah1.png", "/Sylvah2.png", "/Sylvah3.png", "/Sylvah4.png"],
+    image: "/Sylvah1.png",
     label: "Sylvah Group",
     link: "#"
   },
   {
     video: "/SmartCampusNavigation&UtilityBot.mp4",
-    image: "https://picsum.photos/id/1018/900/1200",
+    images: ["/Smartcampusnavi1.png", "/Smartcampusnavi2.png", "/Smartcampusnavi3.png", "/Smartcampusnavi4.png", "/Smartcampusnavi5.png"],
+    image: "/Smartcampusnavi1.png",
     label: "Smart Campus Navigation",
     link: "#"
   },
   {
     video: "/Anusha Inamdar - Portfolio - Google Chrome 2026-08-27 17-33-36.mp4",
-    image: "https://picsum.photos/id/1039/900/1200",
+    images: ["/anushaInamdarPortfolio.png", "/anushaInamdarp2.png", "/anushaInamdarp3.png"],
+    image: "/anushaInamdarPortfolio.png",
     label: "Anusha Inamdar",
     link: "#"
   },
   {
     video: "/AURA_OS [Running] - Oracle VirtualBox 2026-08-27 17-02-43.mp4",
-    image: "https://picsum.photos/id/1043/900/1200",
+    images: ["/Auraos.png", "/Auraos2.png", "/Auraos3.png"],
+    image: "/Auraos.png",
     label: "Aura OS",
     link: "#"
   },
   {
     video: "/ExcelSense.mp4",
-    image: "https://picsum.photos/id/1044/900/1200",
+    images: ["/ExcelSense1.png", "/ExcelSense2.png", "/Excelsense3.png"],
+    image: "/ExcelSense1.png",
     label: "ExcelSense",
     link: "#"
   }

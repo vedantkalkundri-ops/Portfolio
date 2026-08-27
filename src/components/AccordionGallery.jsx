@@ -11,6 +11,50 @@ const DEFAULT_ITEMS = [
   { image: 'https://picsum.photos/id/1044/900/1200', label: 'Skyline', link: '#' }
 ];
 
+const CardImageSlideshow = ({ images, alt, isPlaying }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!isPlaying || !images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3500); // cycle every 3.5 seconds
+    return () => clearInterval(interval);
+  }, [images, isPlaying]);
+
+  useEffect(() => {
+    if (!isPlaying) {
+      setCurrentIndex(0);
+    }
+  }, [isPlaying]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <span className="ag-slideshow-container" style={{ position: 'relative', display: 'block', width: '100%', height: '100%' }}>
+      {images.map((src, index) => (
+        <img
+          key={src}
+          src={src}
+          alt={alt}
+          draggable="false"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: index === currentIndex ? 1 : 0,
+            transition: 'opacity 0.8s ease-in-out',
+            pointerEvents: index === currentIndex ? 'auto' : 'none'
+          }}
+        />
+      ))}
+    </span>
+  );
+};
+
 const AccordionGallery = ({
   items = DEFAULT_ITEMS,
   defaultIndex = 2,
@@ -46,6 +90,7 @@ const AccordionGallery = ({
   const vertical = orientation === 'vertical';
   const count = items.length;
   const [active, setActive] = useState(Math.min(Math.max(defaultIndex, 0), count - 1));
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia
@@ -218,7 +263,11 @@ const AccordionGallery = ({
             style={{ borderRadius: `${radius}px` }}
             href={item.link || undefined}
             onClick={e => handleClick(i, e)}
-            onMouseEnter={() => handleEnter(i)}
+            onMouseEnter={() => {
+              handleEnter(i);
+              setHoveredIndex(i);
+            }}
+            onMouseLeave={() => setHoveredIndex(null)}
             onFocus={() => setActive(i)}
             onKeyDown={e => handleKeyDown(i, e)}
             role="listitem"
@@ -228,7 +277,12 @@ const AccordionGallery = ({
           >
             <span className="ag-panel__frame">
               <span className="ag-panel__media" ref={el => (mediaRefs.current[i] = el)}>
-                {item.video ? (
+                <CardImageSlideshow
+                  images={item.images || (item.image ? [item.image] : [])}
+                  alt={item.alt || item.label || ''}
+                  isPlaying={hoveredIndex === i || isActive}
+                />
+                {item.video && (
                   <video
                     ref={el => (videoRefs.current[i] = el)}
                     src={item.video}
@@ -236,9 +290,19 @@ const AccordionGallery = ({
                     loop
                     playsInline
                     preload="auto"
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      opacity: isActive ? 1 : 0,
+                      transition: 'opacity 0.5s ease-in-out',
+                      pointerEvents: isActive ? 'auto' : 'none',
+                      zIndex: 2
+                    }}
                   />
-                ) : (
-                  <img src={item.image} alt={item.alt || item.label || ''} draggable="false" />
                 )}
               </span>
               <span className="ag-panel__overlay" aria-hidden="true" />
