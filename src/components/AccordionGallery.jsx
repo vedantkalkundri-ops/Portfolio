@@ -30,11 +30,13 @@ const AccordionGallery = ({
   trigger = 'hover',
   showLabels = true,
   grayscale = true,
+  videoPlaybackRate = 1.5,
   className = ''
 }) => {
   const rootRef = useRef(null);
   const panelRefs = useRef([]);
   const mediaRefs = useRef([]);
+  const videoRefs = useRef([]);
   const barRefs = useRef([]);
   const textRefs = useRef([]);
   const tlRef = useRef(null);
@@ -147,6 +149,21 @@ const AccordionGallery = ({
     firstRunRef.current = false;
   }, [applyLayout]);
 
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === active) {
+        video.playbackRate = videoPlaybackRate;
+        video.play().catch(err => {
+          console.warn("Playback prevented:", err);
+        });
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [active, videoPlaybackRate]);
+
   useEffect(
     () => () => {
       tlRef.current?.kill();
@@ -211,7 +228,18 @@ const AccordionGallery = ({
           >
             <span className="ag-panel__frame">
               <span className="ag-panel__media" ref={el => (mediaRefs.current[i] = el)}>
-                <img src={item.image} alt={item.alt || item.label || ''} draggable="false" />
+                {item.video ? (
+                  <video
+                    ref={el => (videoRefs.current[i] = el)}
+                    src={item.video}
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  />
+                ) : (
+                  <img src={item.image} alt={item.alt || item.label || ''} draggable="false" />
+                )}
               </span>
               <span className="ag-panel__overlay" aria-hidden="true" />
             </span>
