@@ -311,7 +311,16 @@ const AccordionGallery = ({
               <span className="ag-panel__label" aria-hidden="true">
                 <span className="ag-panel__bar" ref={el => (barRefs.current[i] = el)} />
                 <span className="ag-panel__text" ref={el => (textRefs.current[i] = el)}>
-                  {item.label}
+                  <span className="ag-panel__title">{item.label}</span>
+                  {(item.descriptionLine1 || item.descriptionLine2 || item.description) && (
+                    <span className="ag-panel__desc">
+                      {item.descriptionLine1 && <span className="ag-panel__desc-line">{item.descriptionLine1}</span>}
+                      {item.descriptionLine2 && <span className="ag-panel__desc-line">{item.descriptionLine2}</span>}
+                      {!item.descriptionLine1 && item.description && (
+                        <span className="ag-panel__desc-line">{item.description}</span>
+                      )}
+                    </span>
+                  )}
                 </span>
               </span>
             )}

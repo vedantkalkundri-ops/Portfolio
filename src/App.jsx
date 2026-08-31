@@ -54,35 +54,45 @@ const projectItems = [
     video: "/Sylvah Group _ Real Estate Company in Belagavi,Hubli & Dharwad - Google Chrome 2026-08-27 17-08-37.mp4",
     images: ["/Sylvah1.png", "/Sylvah2.png", "/Sylvah3.png", "/Sylvah4.png"],
     image: "/Sylvah1.png",
-    label: "Sylvah Group",
+    label: "SYLVAH GROUP",
+    descriptionLine1: "A real estate platform for discovering and managing properties.",
+    descriptionLine2: "Simplifying property listings, inquiries, and administration in one place.",
     link: "#"
   },
   {
     video: "/SmartCampusNavigation&UtilityBot.mp4",
     images: ["/Smartcampusnavi1.png", "/Smartcampusnavi2.png", "/Smartcampusnavi3.png", "/Smartcampusnavi4.png", "/Smartcampusnavi5.png"],
     image: "/Smartcampusnavi1.png",
-    label: "Smart Campus Navigation",
+    label: "Smart Campus Navigation & Utility Bot",
+    descriptionLine1: "A Smart Campus Bot helping students navigate the campus through Maps, Chatbot, and Utility Status.",
+    descriptionLine2: "It simplifies communication and helps newcomers quickly find campus resources.",
     link: "#"
   },
   {
     video: "/Anusha Inamdar - Portfolio - Google Chrome 2026-08-27 17-33-36.mp4",
     images: ["/anushaInamdarPortfolio.png", "/anushaInamdarp2.png", "/anushaInamdarp3.png"],
     image: "/anushaInamdarPortfolio.png",
-    label: "Anusha Inamdar",
+    label: "Anusha Inamdar Portfolio",
+    descriptionLine1: "A personal portfolio showcasing her skills, projects, achievements,",
+    descriptionLine2: "and professional journey.",
     link: "#"
   },
   {
     video: "/AURA_OS [Running] - Oracle VirtualBox 2026-08-27 17-02-43.mp4",
     images: ["/Auraos.png", "/Auraos2.png", "/Auraos3.png"],
     image: "/Auraos.png",
-    label: "Aura OS",
+    label: "AURA OS",
+    descriptionLine1: "An AI-powered Linux interface for smart system control and automation.",
+    descriptionLine2: "Use AI and voice commands to interact with Linux effortlessly.",
     link: "#"
   },
   {
     video: "/ExcelSense.mp4",
     images: ["/ExcelSense1.png", "/ExcelSense2.png", "/Excelsense3.png"],
     image: "/ExcelSense1.png",
-    label: "ExcelSense",
+    label: "Smart ExcelSense",
+    descriptionLine1: "An Excel assistant for data analysis, insights, and visualizations.",
+    descriptionLine2: "Simplifies spreadsheets using natural language commands.",
     link: "#"
   }
 ];
