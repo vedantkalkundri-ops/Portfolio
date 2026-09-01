@@ -8,6 +8,7 @@ import CardSwap, { Card } from "./components/CardSwap";
 import StarBorder from "./components/StarBorder";
 import Dock from "./components/Dock";
 import AccordionGallery from "./components/AccordionGallery";
+import Beams from "./components/Beams";
 import { Code2, Database, Cpu, ShieldCheck, Briefcase } from "lucide-react";
 import "./App.css";
 
@@ -427,9 +428,24 @@ function App() {
         </div>
       </section>
 
-      {/* Section 5: Contact (Placeholder Section) */}
-      <section className="section-standard" id="contact">
-        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+      {/* Section 5: Contact Section with Beams Background */}
+      <section className="section-standard" id="contact" style={{ position: 'relative', overflow: 'hidden', minHeight: '450px' }}>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none' }}>
+          <Beams
+            beamWidth={3}
+            beamHeight={30}
+            beamNumber={20}
+            lightColor="#ffffff"
+            speed={2}
+            noiseIntensity={1.75}
+            scale={0.2}
+            rotation={30}
+            beamColor="#000000"
+            backgroundColor="#000000"
+          />
+        </div>
+
+        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ position: 'relative', zIndex: 5, opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
           <h2>Contact</h2>
           <p>
             Feel free to reach out to discuss work opportunities, projects, or collaborations. You can find me on GitHub or send a message.
