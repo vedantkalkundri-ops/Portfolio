@@ -64,7 +64,8 @@ const projectItems = [
       "Integrated lead inquiry forms with instant notification dispatch",
       "Responsive glassmorphic UI optimized for speed and mobile responsiveness"
     ],
-    techStack: ["React", "JavaScript", "HTML5", "CSS3", "Node.js"]
+    techStack: ["React", "JavaScript", "HTML5", "CSS3", "Node.js"],
+    link: "http://sylvahgroup.com"
   },
   {
     video: "/SmartCampusNavigation&UtilityBot.mp4",
@@ -80,7 +81,8 @@ const projectItems = [
       "Conversational AI bot providing instant answers to campus queries",
       "Real-time campus utility and resource status tracker"
     ],
-    techStack: ["Python", "React", "AI/ML", "JavaScript", "CSS3"]
+    techStack: ["Python", "React", "AI/ML", "JavaScript", "CSS3"],
+    github: "https://github.com/vedantkalkundri-ops/Smart_Campus_Navigation_Utility_Bot.git"
   },
   {
     video: "/Anusha Inamdar - Portfolio - Google Chrome 2026-08-27 17-33-36.mp4",
@@ -114,7 +116,8 @@ const projectItems = [
       "Real-time CPU, RAM, and network telemetry monitoring interface",
       "Built and deployed inside a customized Linux VirtualBox environment"
     ],
-    techStack: ["Linux", "Python", "Bash", "AI/LLM", "Cybersecurity"]
+    techStack: ["Linux", "Python", "Bash", "AI/LLM", "Cybersecurity"],
+    github: "https://github.com/sanchi0/AURAOS/tree/vedant-ops"
   },
   {
     video: "/ExcelSense.mp4",
@@ -131,7 +134,7 @@ const projectItems = [
       "Full export capability back to standard Excel workbooks"
     ],
     techStack: ["Python", "Flask", "Pandas", "Chart.js", "JavaScript"],
-    github: "https://github.com/vedantkalkundri-ops/Smart-Excel-Sense"
+    github: "https://github.com/vedantkalkundri-ops/Smart-Excel-Sense.git"
   }
 ];
 

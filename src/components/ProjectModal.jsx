@@ -58,41 +58,47 @@ const ProjectModal = ({ project, onClose }) => {
           </p>
         </div>
 
-        <div className="project-modal-links">
-          <div className="project-modal-link-item">
-            <span className="link-label">Live Link :</span>{" "}
-            {hasLiveLink ? (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link-anchor"
-              >
-                {project.link} <ExternalLink size={14} />
-              </a>
-            ) : (
-              <span className="link-placeholder">Your live/demo link</span>
+        {(project.link || project.github) && (
+          <div className="project-modal-links">
+            {project.link && (
+              <div className="project-modal-link-item">
+                <span className="link-label">Live Link :</span>{" "}
+                {hasLiveLink ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-anchor"
+                  >
+                    {project.link} <ExternalLink size={14} />
+                  </a>
+                ) : (
+                  <span className="link-placeholder">Your live/demo link</span>
+                )}
+              </div>
             )}
-          </div>
 
-          <div className="project-modal-link-item">
-            <span className="link-label">
-              <GithubIcon size={20} /> Link :
-            </span>{" "}
-            {hasGithubLink ? (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link-anchor"
-              >
-                {project.github} <ExternalLink size={14} />
-              </a>
-            ) : (
-              <span className="link-placeholder">Your GitHub link</span>
+            {project.github && (
+              <div className="project-modal-link-item">
+                <span className="link-label">
+                  <GithubIcon size={20} /> Link :
+                </span>{" "}
+                {hasGithubLink ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-anchor"
+                  >
+                    {project.github} <ExternalLink size={14} />
+                  </a>
+                ) : (
+                  <span className="link-placeholder">Your GitHub link</span>
+                )}
+              </div>
             )}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
