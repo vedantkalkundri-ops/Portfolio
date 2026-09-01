@@ -55,45 +55,83 @@ const projectItems = [
     images: ["/Sylvah1.png", "/Sylvah2.png", "/Sylvah3.png", "/Sylvah4.png"],
     image: "/Sylvah1.png",
     label: "SYLVAH GROUP",
-    descriptionLine1: "A real estate platform for discovering and managing properties.",
-    descriptionLine2: "Simplifying property listings, inquiries, and administration in one place.",
-    link: "#"
+    descriptionLine1: "A real estate management platform for property showcasing,",
+    descriptionLine2: "enquiry tracking, and administrative operations.",
+    detailedDescription: "A real estate management and property listing platform designed to streamline property showcasing, enquiry management, and administrative operations. The system provides an organized interface for managing property information, tracking enquiries, handling records, and exporting data for business use.",
+    features: [
+      "Filterable property search with location and pricing parameters",
+      "High-resolution media slider and image galleries for each property",
+      "Integrated lead inquiry forms with instant notification dispatch",
+      "Responsive glassmorphic UI optimized for speed and mobile responsiveness"
+    ],
+    techStack: ["React", "JavaScript", "HTML5", "CSS3", "Node.js"]
   },
   {
     video: "/SmartCampusNavigation&UtilityBot.mp4",
     images: ["/Smartcampusnavi1.png", "/Smartcampusnavi2.png", "/Smartcampusnavi3.png", "/Smartcampusnavi4.png", "/Smartcampusnavi5.png"],
     image: "/Smartcampusnavi1.png",
     label: "Smart Campus Navigation & Utility Bot",
-    descriptionLine1: "A Smart Campus Bot helping students navigate the campus through Maps, Chatbot, and Utility Status.",
-    descriptionLine2: "It simplifies communication and helps newcomers quickly find campus resources.",
-    link: "#"
+    descriptionLine1: "An AI-powered campus assistance system to help new students",
+    descriptionLine2: "and visitors navigate college campuses with ease.",
+    detailedDescription: "An AI-powered campus assistance system designed to help new students and visitors navigate large college campuses with ease. It combines an intelligent chatbot, interactive campus maps, and utility-status information to provide quick access to directions, campus facilities, and essential information.",
+    features: [
+      "Won 2nd Prize at Impactathon 2026",
+      "Interactive campus navigation map with building pinpoints & routes",
+      "Conversational AI bot providing instant answers to campus queries",
+      "Real-time campus utility and resource status tracker"
+    ],
+    techStack: ["Python", "React", "AI/ML", "JavaScript", "CSS3"]
   },
   {
     video: "/Anusha Inamdar - Portfolio - Google Chrome 2026-08-27 17-33-36.mp4",
     images: ["/anushaInamdarPortfolio.png", "/anushaInamdarp2.png", "/anushaInamdarp3.png"],
     image: "/anushaInamdarPortfolio.png",
     label: "Anusha Inamdar Portfolio",
-    descriptionLine1: "A personal portfolio showcasing her skills, projects, achievements,",
-    descriptionLine2: "and professional journey.",
-    link: "#"
+    descriptionLine1: "A modern personal portfolio designed for an SEO Content Writer",
+    descriptionLine2: "and Strategist, featuring interactive 3D elements.",
+    detailedDescription: "A modern personal portfolio designed for an SEO Content Writer and Strategist, featuring an interactive visual experience with animated backgrounds, 3D elements, and responsive layouts. The website showcases 610+ published articles, professional experience, services, SEO expertise, research tools, and published work.",
+    features: [
+      "Custom dark-mode UI design system with fluid layout transitions",
+      "Interactive technical skills & software showcase accordion",
+      "Responsive layout optimized across all screen sizes",
+      "Embedded project demo media and direct contact channels"
+    ],
+    techStack: ["React", "CSS3", "JavaScript", "Vite", "Figma"],
+    link: "https://anushainamdarportfolio.vercel.app/",
+    github: "https://github.com/vedantkalkundri-ops/portfolio-ui"
   },
   {
     video: "/AURA_OS [Running] - Oracle VirtualBox 2026-08-27 17-02-43.mp4",
     images: ["/Auraos.png", "/Auraos2.png", "/Auraos3.png"],
     image: "/Auraos.png",
     label: "AURA OS",
-    descriptionLine1: "An AI-powered Linux interface for smart system control and automation.",
-    descriptionLine2: "Use AI and voice commands to interact with Linux effortlessly.",
-    link: "#"
+    descriptionLine1: "An AI-powered local Linux desktop assistant that bridges",
+    descriptionLine2: "Google Gemini with system-level controls.",
+    detailedDescription: "An AI-powered local Linux desktop assistant that bridges Google Gemini with system-level controls. It supports voice interaction, screen awareness, natural-language command execution, file management, terminal operations, system utilities, and real-time hardware telemetry through a React and Node.js architecture.",
+    features: [
+      "Natural language voice & text command parsing to bash commands",
+      "Automated system administration and task execution",
+      "Real-time CPU, RAM, and network telemetry monitoring interface",
+      "Built and deployed inside a customized Linux VirtualBox environment"
+    ],
+    techStack: ["Linux", "Python", "Bash", "AI/LLM", "Cybersecurity"]
   },
   {
     video: "/ExcelSense.mp4",
     images: ["/ExcelSense1.png", "/ExcelSense2.png", "/Excelsense3.png"],
     image: "/ExcelSense1.png",
-    label: "Smart ExcelSense",
-    descriptionLine1: "An Excel assistant for data analysis, insights, and visualizations.",
-    descriptionLine2: "Simplifies spreadsheets using natural language commands.",
-    link: "#"
+    label: "ExcelSense",
+    descriptionLine1: "A smart Excel and CSV analysis platform to upload, preview,",
+    descriptionLine2: "and process datasets with interactive visualizations.",
+    detailedDescription: "A smart Excel and CSV analysis platform that allows users to upload datasets, preview and process data, perform statistical operations, filter and group records, and generate interactive visualizations. Built with Flask, Pandas, and Chart.js, it also provides KPI summaries and export functionality for analyzed results.",
+    features: [
+      "Plain English conversational querying for spreadsheet data",
+      "Instant chart and summary dashboard generation",
+      "Automated formula synthesis and data anomaly cleanup",
+      "Full export capability back to standard Excel workbooks"
+    ],
+    techStack: ["Python", "Flask", "Pandas", "Chart.js", "JavaScript"],
+    github: "https://github.com/vedantkalkundri-ops/Smart-Excel-Sense"
   }
 ];
 

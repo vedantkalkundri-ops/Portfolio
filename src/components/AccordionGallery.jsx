@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
+import ProjectModal from './ProjectModal';
 
 import './AccordionGallery.css';
 
@@ -91,6 +92,7 @@ const AccordionGallery = ({
   const count = items.length;
   const [active, setActive] = useState(Math.min(Math.max(defaultIndex, 0), count - 1));
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia
@@ -221,10 +223,9 @@ const AccordionGallery = ({
   };
 
   const handleClick = (i, e) => {
-    if (i !== active) {
-      e.preventDefault();
-      setActive(i);
-    }
+    e.preventDefault();
+    setActive(i);
+    setSelectedProject(items[i]);
   };
 
   const handleKeyDown = (i, e) => {
@@ -234,100 +235,118 @@ const AccordionGallery = ({
     } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
       e.preventDefault();
       setActive((i - 1 + count) % count);
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setSelectedProject(items[i]);
     }
   };
 
   return (
-    <div
-      ref={rootRef}
-      className={`accordion-gallery${vertical ? ' accordion-gallery--vertical' : ''}${className ? ` ${className}` : ''}`}
-      style={{
-        '--ag-accent': accentColor,
-        '--ag-overlay': overlayColor,
-        '--ag-text': textColor,
-        '--ag-gap': `${gap}px`,
-        '--ag-radius': `${radius}px`,
-        height: vertical ? `${Math.round(height * 1.6)}px` : `${height}px`
-      }}
-      role="list"
-      aria-label="Image accordion gallery"
-    >
-      {items.map((item, i) => {
-        const isActive = i === active;
-        const Tag = item.link ? 'a' : 'div';
-        return (
-          <Tag
-            key={i}
-            ref={el => (panelRefs.current[i] = el)}
-            className={`ag-panel${isActive ? ' ag-panel--active' : ''}`}
-            style={{ borderRadius: `${radius}px` }}
-            href={item.link || undefined}
-            onClick={e => handleClick(i, e)}
-            onMouseEnter={() => {
-              handleEnter(i);
-              setHoveredIndex(i);
-            }}
-            onMouseLeave={() => setHoveredIndex(null)}
-            onFocus={() => setActive(i)}
-            onKeyDown={e => handleKeyDown(i, e)}
-            role="listitem"
-            tabIndex={0}
-            aria-current={isActive ? 'true' : undefined}
-            aria-label={item.label}
-          >
-            <span className="ag-panel__frame">
-              <span className="ag-panel__media" ref={el => (mediaRefs.current[i] = el)}>
-                <CardImageSlideshow
-                  images={item.images || (item.image ? [item.image] : [])}
-                  alt={item.alt || item.label || ''}
-                  isPlaying={hoveredIndex === i || isActive}
-                />
-                {item.video && (
-                  <video
-                    ref={el => (videoRefs.current[i] = el)}
-                    src={item.video}
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      opacity: isActive ? 1 : 0,
-                      transition: 'opacity 0.5s ease-in-out',
-                      pointerEvents: isActive ? 'auto' : 'none',
-                      zIndex: 2
-                    }}
+    <>
+      <div
+        ref={rootRef}
+        className={`accordion-gallery${vertical ? ' accordion-gallery--vertical' : ''}${className ? ` ${className}` : ''}`}
+        style={{
+          '--ag-accent': accentColor,
+          '--ag-overlay': overlayColor,
+          '--ag-text': textColor,
+          '--ag-gap': `${gap}px`,
+          '--ag-radius': `${radius}px`,
+          height: vertical ? `${Math.round(height * 1.6)}px` : `${height}px`
+        }}
+        role="list"
+        aria-label="Image accordion gallery"
+      >
+        {items.map((item, i) => {
+          const isActive = i === active;
+          const Tag = 'div';
+          return (
+            <Tag
+              key={i}
+              ref={el => (panelRefs.current[i] = el)}
+              className={`ag-panel${isActive ? ' ag-panel--active' : ''}`}
+              style={{ borderRadius: `${radius}px` }}
+              onClick={e => handleClick(i, e)}
+              onMouseEnter={() => {
+                handleEnter(i);
+                setHoveredIndex(i);
+              }}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onFocus={() => setActive(i)}
+              onKeyDown={e => handleKeyDown(i, e)}
+              role="listitem"
+              tabIndex={0}
+              aria-current={isActive ? 'true' : undefined}
+              aria-label={item.label}
+            >
+              <span className="ag-panel__frame">
+                <span className="ag-panel__media" ref={el => (mediaRefs.current[i] = el)}>
+                  <CardImageSlideshow
+                    images={item.images || (item.image ? [item.image] : [])}
+                    alt={item.alt || item.label || ''}
+                    isPlaying={hoveredIndex === i || isActive}
                   />
-                )}
-              </span>
-              <span className="ag-panel__overlay" aria-hidden="true" />
-            </span>
-            {showLabels && (
-              <span className="ag-panel__label" aria-hidden="true">
-                <span className="ag-panel__bar" ref={el => (barRefs.current[i] = el)} />
-                <span className="ag-panel__text" ref={el => (textRefs.current[i] = el)}>
-                  <span className="ag-panel__title">{item.label}</span>
-                  {(item.descriptionLine1 || item.descriptionLine2 || item.description) && (
-                    <span className="ag-panel__desc">
-                      {item.descriptionLine1 && <span className="ag-panel__desc-line">{item.descriptionLine1}</span>}
-                      {item.descriptionLine2 && <span className="ag-panel__desc-line">{item.descriptionLine2}</span>}
-                      {!item.descriptionLine1 && item.description && (
-                        <span className="ag-panel__desc-line">{item.description}</span>
-                      )}
-                    </span>
+                  {item.video && (
+                    <video
+                      ref={el => (videoRefs.current[i] = el)}
+                      src={item.video}
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        opacity: isActive ? 1 : 0,
+                        transition: 'opacity 0.5s ease-in-out',
+                        pointerEvents: isActive ? 'auto' : 'none',
+                        zIndex: 2
+                      }}
+                    />
                   )}
                 </span>
+                <span className="ag-panel__overlay" aria-hidden="true" />
               </span>
-            )}
-          </Tag>
-        );
-      })}
-    </div>
+              {showLabels && (
+                <span className="ag-panel__label" aria-hidden="true">
+                  <span className="ag-panel__text" ref={el => (textRefs.current[i] = el)}>
+                    <span className="ag-panel__header-box">
+                      <span className="ag-panel__bar" ref={el => (barRefs.current[i] = el)} />
+                      <span className="ag-panel__header-content">
+                        <span className="ag-panel__title">{item.label}</span>
+                        {(item.descriptionLine1 || item.descriptionLine2 || item.description) && (
+                          <span className="ag-panel__desc">
+                            {item.descriptionLine1 && <span className="ag-panel__desc-line">{item.descriptionLine1}</span>}
+                            {item.descriptionLine2 && <span className="ag-panel__desc-line">{item.descriptionLine2}</span>}
+                            {!item.descriptionLine1 && item.description && (
+                              <span className="ag-panel__desc-line">{item.description}</span>
+                            )}
+                          </span>
+                        )}
+                      </span>
+                    </span>
+                    <span className="ag-panel__view-btn">
+                      View details <span className="ag-panel__arrow">↗</span>
+                    </span>
+                  </span>
+                </span>
+              )}
+            </Tag>
+          );
+        })}
+      </div>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+    </>
   );
 };
 
