@@ -430,7 +430,7 @@ function App() {
 
       {/* Section 5: Contact Section with Beams Background */}
       <section className="section-standard" id="contact" style={{ position: 'relative', overflow: 'hidden', minHeight: '450px' }}>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none' }}>
+        <div className="contact-beams-wrapper">
           <Beams
             beamWidth={3}
             beamHeight={30}
