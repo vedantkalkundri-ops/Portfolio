@@ -1,14 +1,19 @@
 .project-modal-backdrop {
   position: fixed;
-  inset: 0;
-  z-index: 99999;
-  background: rgba(6, 0, 16, 0.78);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: rgba(5, 2, 12, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px;
   animation: modalFadeIn 0.25s ease-out forwards;
 }
 
@@ -24,25 +29,25 @@
 .project-modal-card {
   position: relative;
   width: 100%;
-  max-width: 580px;
-  background: rgba(15, 11, 26, 0.96);
-  border: 1px solid rgba(168, 85, 247, 0.35);
-  border-radius: 20px;
-  padding: 32px 28px 28px 28px;
+  max-width: 620px;
+  background: linear-gradient(135deg, #4d0677 0%, #250242 100%);
+  border: 1px solid rgba(216, 180, 254, 0.4);
+  border-radius: 24px;
+  padding: 36px 32px 32px 32px;
   box-shadow:
-    0 20px 50px -10px rgba(0, 0, 0, 0.9),
-    0 0 30px rgba(168, 85, 247, 0.25);
+    0 25px 60px -10px rgba(0, 0, 0, 0.95),
+    0 0 50px rgba(168, 85, 247, 0.4);
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
   animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes modalScaleUp {
   from {
     opacity: 0;
-    transform: scale(0.92) translateY(12px);
+    transform: scale(0.92) translateY(16px);
   }
   to {
     opacity: 1;
@@ -52,14 +57,14 @@
 
 .project-modal-close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 20px;
+  right: 20px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,26 +73,43 @@
 }
 
 .project-modal-close:hover {
-  background: rgba(239, 68, 68, 0.8);
+  background: rgba(239, 68, 68, 0.85);
   border-color: rgba(239, 68, 68, 1);
   color: #ffffff;
   transform: rotate(90deg);
 }
 
 .project-modal-title {
-  font-size: 1.6rem;
+  font-family: inherit;
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding-right: 32px;
-  line-height: 1.25;
+  color: #ffffff;
+  padding-right: 40px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  word-break: break-word;
+}
+
+.project-modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-modal-section-title {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.01em;
 }
 
 .project-modal-about {
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }
@@ -95,53 +117,64 @@
 .project-modal-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .project-modal-link-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
+  gap: 10px;
+  font-size: 0.92rem;
+  flex-wrap: nowrap;
 }
 
 .link-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  min-width: 60px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .project-link-anchor {
-  color: #c084fc;
+  color: #e9d5ff;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   word-break: break-all;
   font-weight: 500;
   transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .project-link-anchor:hover {
-  color: #e9d5ff;
+  color: #ffffff;
   text-decoration: underline;
 }
 
 .link-placeholder {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
   font-style: italic;
+  white-space: nowrap;
 }
 
 @media (max-width: 520px) {
   .project-modal-card {
-    padding: 24px 20px 20px 20px;
+    padding: 26px 22px 24px 22px;
   }
   .project-modal-title {
     font-size: 1.35rem;
   }
   .project-modal-about {
     font-size: 0.88rem;
+  }
+  .project-modal-link-item {
+    flex-wrap: wrap;
+    gap: 6px;
   }
 }
