@@ -447,9 +447,7 @@ function App() {
 
         <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ position: 'relative', zIndex: 5, opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
           <h2>Contact</h2>
-          <p>
-            Feel free to reach out to discuss work opportunities, projects, or collaborations. You can find me on GitHub or send a message.
-          </p>
+
         </div>
       </section>
     </>
