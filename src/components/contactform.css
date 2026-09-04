@@ -68,7 +68,7 @@
 
 .open-hero-subtitle {
     font-size: clamp(0.85rem, 1.1vw, 1.05rem);
-    color: #cecccc;
+    color: #e1dede;
     line-height: 1.55;
     margin-bottom: 1.75rem;
     max-width: 580px;
