@@ -9,6 +9,7 @@ import StarBorder from "./components/StarBorder";
 import Dock from "./components/Dock";
 import AccordionGallery from "./components/AccordionGallery";
 import Beams from "./components/Beams";
+import ContactForm from "./components/contactform";
 import { Code2, Database, Cpu, ShieldCheck, Briefcase } from "lucide-react";
 import "./App.css";
 
@@ -429,12 +430,12 @@ function App() {
       </section>
 
       {/* Section 5: Contact Section with Beams Background */}
-      <section className="section-standard" id="contact" style={{ position: 'relative', overflow: 'hidden', minHeight: '450px' }}>
+      <section className="section-standard" id="contact" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div className="contact-beams-wrapper">
           <Beams
             beamWidth={3}
             beamHeight={30}
-            beamNumber={20}
+            beamNumber={120}
             lightColor="#ffffff"
             speed={2}
             noiseIntensity={1.75}
@@ -447,7 +448,7 @@ function App() {
 
         <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ position: 'relative', zIndex: 5, opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
           <h2>Contact</h2>
-
+          <ContactForm />
         </div>
       </section>
     </>
