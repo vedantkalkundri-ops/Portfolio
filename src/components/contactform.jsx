@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { User, Mail, MessageSquare, Send, CheckCircle2, Sparkles, ExternalLink } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { User, Mail, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 import './contactform.css';
 
 const LinkedinIcon = () => (
@@ -17,6 +17,7 @@ const GithubIcon = () => (
 );
 
 const ContactForm = () => {
+    const form = useRef();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -72,7 +73,7 @@ const ContactForm = () => {
                         </button>
                     </div>
                 ) : (
-                    <form className="contact-form" onSubmit={handleSubmit}>
+                    <form ref={form} className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="name" className="form-label">
@@ -156,8 +157,6 @@ const ContactForm = () => {
                         Open to internships, collaborations, and opportunities to build meaningful things together.
                     </div>
 
-
-
                     <div className="open-social-row">
                         <a
                             href="https://linkedin.com/in/vedant-kalkundri"
@@ -188,7 +187,7 @@ const ContactForm = () => {
                     </a>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
