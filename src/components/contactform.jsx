@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { User, Mail, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
+import { User, Mail, MessageSquare, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import './contactform.css';
 
 const LinkedinIcon = () => (
@@ -26,6 +27,7 @@ const ContactForm = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,17 +37,54 @@ const ContactForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setErrorMessage('');
 
-        // Simulate sending message
-        setTimeout(() => {
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+        const templateIdOwner = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_OWNER || import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_OWNER_TEMPLATE_ID';
+        const templateIdUser = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_USER || 'YOUR_USER_TEMPLATE_ID';
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+        try {
+            // 1. Email notification sent to the owner (you)
+            const ownerParams = {
+                from_name: formData.name,
+                from_email: formData.email,
+                reply_to: formData.email,
+                message: formData.message,
+                to_name: 'Vedant',
+            };
+
+            const sendOwnerEmail = emailjs.send(serviceId, templateIdOwner, ownerParams, publicKey);
+
+            // 2. Auto-reply email sent to the person who sent the message
+            let sendUserEmail = Promise.resolve();
+            if (templateIdUser && templateIdUser !== 'YOUR_USER_TEMPLATE_ID') {
+                const userParams = {
+                    to_name: formData.name,
+                    to_email: formData.email,
+                    from_name: 'Vedant Kalkundri',
+                    message: formData.message,
+                };
+                sendUserEmail = emailjs.send(serviceId, templateIdUser, userParams, publicKey);
+            }
+
+            await Promise.all([sendOwnerEmail, sendUserEmail]);
+
             setIsSubmitting(false);
             setIsSubmitted(true);
             setFormData({ name: '', email: '', message: '' });
-        }, 1000);
+        } catch (error) {
+            console.error('Failed to send email via EmailJS:', error);
+            setIsSubmitting(false);
+            setErrorMessage(
+                error?.text || 'Failed to send email. Please verify your EmailJS keys or check network connection.'
+            );
+        }
     };
+
 
     const handleReset = () => {
         setIsSubmitted(false);
@@ -74,6 +113,12 @@ const ContactForm = () => {
                     </div>
                 ) : (
                     <form ref={form} className="contact-form" onSubmit={handleSubmit}>
+                        {errorMessage && (
+                            <div className="error-message">
+                                <AlertCircle size={18} />
+                                <span>{errorMessage}</span>
+                            </div>
+                        )}
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="name" className="form-label">
