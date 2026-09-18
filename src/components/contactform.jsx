@@ -159,7 +159,7 @@ const ContactForm = () => {
 
                     <div className="open-social-row">
                         <a
-                            href="https://linkedin.com/in/vedant-kalkundri"
+                            href="https://www.linkedin.com/in/vedant-kalkundri-7b316a341"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="open-social-text-link"
