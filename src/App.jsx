@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import MoltenMetal from "./components/MoltenMetal";
 import Lanyard from "./components/Lanyard";
 import PortfolioIntro from "./components/PortfolioIntro";
@@ -146,9 +146,28 @@ function App() {
   const handleMoveStart = useCallback(() => setShowBackground(true), []);
   const handleIntroComplete = useCallback(() => setShowIntro(false), []);
 
+  const [aboutInView, setAboutInView] = useState(false);
+  const aboutRef = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setAboutInView(entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
 
+    const currentRef = aboutRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -216,7 +235,7 @@ function App() {
       </section>
 
       {/* Section 2: About (SideRays Background) */}
-      <section className="section-about" id="about">
+      <section className="section-about" id="about" ref={aboutRef}>
         <div className="rays-background" aria-hidden="true">
           <SideRays
             speed={2.5}
@@ -233,7 +252,7 @@ function App() {
           />
         </div>
 
-        <div className={`about-container${!showIntro ? " is-visible" : ""}`}>
+        <div className={`about-container${!showIntro && aboutInView ? " is-visible" : ""}`}>
           <div className="about-image-wrapper">
             <img
               src="/WhatsApp Image 2026-08-20 at 6.14.15 PM...png"

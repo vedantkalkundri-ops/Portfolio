@@ -379,21 +379,17 @@ body {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  /* gap: clamp(2rem, 5vw, 6rem); */
   width: 100%;
   max-width: 76rem;
   margin: 0 auto;
   position: relative;
   z-index: 5;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0.5s;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-container.is-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .about-image-wrapper {
@@ -403,6 +399,16 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: -2.5rem;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.about-container.is-visible .about-image-wrapper {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
 }
 
 .about-image {
@@ -425,6 +431,45 @@ body {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+}
+
+.about-text-content h2,
+.about-text-content .about-name,
+.about-text-content p {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.about-container.is-visible .about-text-content h2 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.2s;
+}
+
+.about-container.is-visible .about-text-content .about-name {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+
+.about-container.is-visible .about-text-content p:nth-of-type(1) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.5s;
+}
+
+.about-container.is-visible .about-text-content p:nth-of-type(2) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.65s;
+}
+
+.about-container.is-visible .about-text-content p:nth-of-type(3) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.8s;
 }
 
 /* Mobile responsive styles */
