@@ -1,21 +1,27 @@
 .dock-outer {
   display: flex;
   width: 100%;
+  max-width: 100%;
   align-items: flex-end;
   justify-content: flex-start;
   margin: 0;
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.dock-outer::-webkit-scrollbar {
+  display: none;
 }
 
 .dock-panel {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  width: fit-content;
-  gap: 0.5rem;
-  /* Reduced horizontal gap between icons */
+  width: max-content;
+  gap: 0.4rem;
   padding-bottom: 12px;
-  /* Extra padding so magnifying items don't get cut off at the bottom */
 }
 
 .dock-item {

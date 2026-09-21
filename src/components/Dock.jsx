@@ -96,7 +96,28 @@ export default function Dock({
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
 
-  const fixedHeight = useMemo(() => baseItemSize + 20, [baseItemSize]);
+  const [effectiveItemSize, setEffectiveItemSize] = useState(baseItemSize);
+  const [effectiveMagnification, setEffectiveMagnification] = useState(magnification);
+
+  useEffect(() => {
+    const updateSizes = () => {
+      if (window.innerWidth < 480) {
+        setEffectiveItemSize(Math.min(baseItemSize, 42));
+        setEffectiveMagnification(Math.min(magnification, 54));
+      } else if (window.innerWidth < 768) {
+        setEffectiveItemSize(Math.min(baseItemSize, 48));
+        setEffectiveMagnification(Math.min(magnification, 64));
+      } else {
+        setEffectiveItemSize(baseItemSize);
+        setEffectiveMagnification(magnification);
+      }
+    };
+    updateSizes();
+    window.addEventListener('resize', updateSizes);
+    return () => window.removeEventListener('resize', updateSizes);
+  }, [baseItemSize, magnification]);
+
+  const fixedHeight = useMemo(() => effectiveMagnification + 16, [effectiveMagnification]);
 
   return (
     <div
@@ -125,8 +146,8 @@ export default function Dock({
             mouseX={mouseX}
             spring={spring}
             distance={distance}
-            magnification={magnification}
-            baseItemSize={baseItemSize}
+            magnification={effectiveMagnification}
+            baseItemSize={effectiveItemSize}
             label={item.label}
           >
             <DockIcon>{item.icon}</DockIcon>
@@ -137,3 +158,4 @@ export default function Dock({
     </div>
   );
 }
+

@@ -31,6 +31,9 @@
   position: relative;
   width: 100%;
   max-width: 620px;
+  max-height: 90vh;
+  max-height: 90svh;
+  overflow-y: auto;
   background: linear-gradient(317deg, #310a49 0%, #0b0212 100%);
   border: 1px solid rgba(216, 180, 254, 0.4);
   border-radius: 24px;
@@ -44,6 +47,7 @@
   gap: 22px;
   animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 
 @keyframes modalScaleUp {
   from {
