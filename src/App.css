@@ -204,8 +204,28 @@ body {
 @media (prefers-reduced-motion: reduce) {
 
   .github-link__label,
-  .github-link__icon {
-    transition: none;
+  .github-link__icon,
+  .about-image-wrapper,
+  .about-text-content h2,
+  .about-text-content .about-name,
+  .about-text-content p,
+  .edu-ach-header .edu-ach-title,
+  .edu-column .column-subtitle,
+  .ach-column .column-subtitle,
+  .timeline .edu-item-star-border,
+  .achievements-list .ach-item,
+  .skills-text-content h2,
+  .skills-text-content .skills-subtitle,
+  .skills-text-content > div,
+  .skills-visual-content,
+  .projects-container h2,
+  .projects-container > *:not(h2),
+  .contact-content-wrapper h2,
+  .contact-content-wrapper > *:not(h2) {
+    transition: none !important;
+    transition-delay: 0s !important;
+    transform: none !important;
+    opacity: 1 !important;
   }
 }
 
@@ -506,14 +526,11 @@ body {
   position: relative;
   z-index: 5;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0.5s;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .skills-container.is-visible {
   opacity: 1;
-  transform: translateY(0);
   margin-top: 2rem;
 }
 
@@ -523,6 +540,46 @@ body {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+}
+
+.skills-text-content h2,
+.skills-text-content .skills-subtitle,
+.skills-text-content > div {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.skills-container.is-visible .skills-text-content h2 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+.skills-container.is-visible .skills-text-content .skills-subtitle:nth-of-type(1) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.25s;
+}
+
+.skills-container.is-visible .skills-text-content > div:nth-of-type(1) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.38s;
+}
+
+.skills-container.is-visible .skills-text-content .skills-subtitle:nth-of-type(2) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.52s;
+}
+
+.skills-container.is-visible .skills-text-content > div:nth-of-type(2),
+.skills-container.is-visible .skills-text-content > div:nth-of-type(3) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.65s;
 }
 
 .skills-subtitle {
@@ -585,7 +642,6 @@ body {
   font-size: 0.6rem;
   font-weight: 700;
   color: #4a044e;
-  /* Dark purple text for contrast on white background */
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -615,6 +671,16 @@ body {
   height: 480px;
   width: 100%;
   max-width: 500px;
+  opacity: 0;
+  transform: translateX(80px) scale(0.95);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.skills-container.is-visible .skills-visual-content {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 0.3s;
 }
 
 @media (max-width: 992px) {
@@ -639,15 +705,38 @@ body {
   position: relative;
   z-index: 5;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0.5s;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .projects-container.is-visible {
   opacity: 1;
-  transform: translateY(0);
   margin-top: 1rem;
+}
+
+.projects-container h2 {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.projects-container.is-visible h2 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+.projects-container > *:not(h2) {
+  opacity: 0;
+  transform: translateY(60px) scale(0.98);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.projects-container.is-visible > *:not(h2) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.35s;
 }
 
 /* Education & Achievements Grid */
@@ -662,15 +751,139 @@ body {
   position: relative;
   z-index: 5;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0.5s;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .edu-ach-container.is-visible {
   opacity: 1;
-  transform: translateY(0);
   margin-top: 1rem;
+}
+
+.edu-ach-header .edu-ach-title {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.edu-ach-container.is-visible .edu-ach-header .edu-ach-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.edu-column .column-subtitle {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.edu-ach-container.is-visible .edu-column .column-subtitle {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.25s;
+}
+
+.ach-column .column-subtitle {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.edu-ach-container.is-visible .ach-column .column-subtitle {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.25s;
+}
+
+/* Staggered animation for Education timeline items */
+.timeline .edu-item-star-border {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.edu-ach-container.is-visible .timeline .edu-item-star-border:nth-child(1) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+
+.edu-ach-container.is-visible .timeline .edu-item-star-border:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.50s;
+}
+
+.edu-ach-container.is-visible .timeline .edu-item-star-border:nth-child(3) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.65s;
+}
+
+/* Staggered animation for Achievement items */
+.achievements-list .ach-item {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.edu-ach-container.is-visible .achievements-list .ach-item:nth-child(1) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.40s;
+}
+
+.edu-ach-container.is-visible .achievements-list .ach-item:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.55s;
+}
+
+.edu-ach-container.is-visible .achievements-list .ach-item:nth-child(3) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.70s;
+}
+
+/* Contact Section entrance animation */
+.contact-content-wrapper {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-content-wrapper.is-visible {
+  opacity: 1;
+}
+
+.contact-content-wrapper h2 {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.contact-content-wrapper.is-visible h2 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+.contact-content-wrapper > *:not(h2) {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.contact-content-wrapper.is-visible > *:not(h2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
 }
 
 .edu-column {

@@ -147,25 +147,44 @@ function App() {
   const handleIntroComplete = useCallback(() => setShowIntro(false), []);
 
   const [aboutInView, setAboutInView] = useState(false);
+  const [eduInView, setEduInView] = useState(false);
+  const [skillsInView, setSkillsInView] = useState(false);
+  const [projectsInView, setProjectsInView] = useState(false);
+  const [contactInView, setContactInView] = useState(false);
+
   const aboutRef = useRef(null);
+  const eduRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setAboutInView(entry.isIntersecting);
-      },
-      { threshold: 0.15 }
-    );
+    const createObserver = (setInView) =>
+      new IntersectionObserver(
+        ([entry]) => {
+          setInView(entry.isIntersecting);
+        },
+        { threshold: 0.12 }
+      );
 
-    const currentRef = aboutRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    const obsAbout = createObserver(setAboutInView);
+    const obsEdu = createObserver(setEduInView);
+    const obsSkills = createObserver(setSkillsInView);
+    const obsProjects = createObserver(setProjectsInView);
+    const obsContact = createObserver(setContactInView);
+
+    if (aboutRef.current) obsAbout.observe(aboutRef.current);
+    if (eduRef.current) obsEdu.observe(eduRef.current);
+    if (skillsRef.current) obsSkills.observe(skillsRef.current);
+    if (projectsRef.current) obsProjects.observe(projectsRef.current);
+    if (contactRef.current) obsContact.observe(contactRef.current);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      obsAbout.disconnect();
+      obsEdu.disconnect();
+      obsSkills.disconnect();
+      obsProjects.disconnect();
+      obsContact.disconnect();
     };
   }, []);
 
@@ -278,8 +297,8 @@ function App() {
       </section>
 
       {/* Section 2.5: Education & Achievements */}
-      <section className="section-standard" id="education">
-        <div className={`edu-ach-container${!showIntro ? " is-visible" : ""}`}>
+      <section className="section-standard" id="education" ref={eduRef}>
+        <div className={`edu-ach-container${!showIntro && eduInView ? " is-visible" : ""}`}>
           <div className="edu-ach-header">
             <h2 className="edu-ach-title">Foundation & Milestones</h2>
           </div>
@@ -358,8 +377,8 @@ function App() {
       </section>
 
       {/* Section 3: skills (CardSwap Showcase) */}
-      <section className="section-standard" id="skills">
-        <div className={`skills-container${!showIntro ? " is-visible" : ""}`}>
+      <section className="section-standard" id="skills" ref={skillsRef}>
+        <div className={`skills-container${!showIntro && skillsInView ? " is-visible" : ""}`}>
           <div className="skills-text-content">
             <h2>Skills</h2>
             <h3 className="skills-subtitle">Technology</h3>
@@ -420,8 +439,8 @@ function App() {
       </section>
 
       {/* Section 4: Projects (Placeholder Section) */}
-      <section className="section-standard" id="projects">
-        <div className={`projects-container${!showIntro ? " is-visible" : ""}`}>
+      <section className="section-standard" id="projects" ref={projectsRef}>
+        <div className={`projects-container${!showIntro && projectsInView ? " is-visible" : ""}`}>
           <h2>Projects</h2>
 
           <AccordionGallery
@@ -449,7 +468,7 @@ function App() {
       </section>
 
       {/* Section 5: Contact Section with Beams Background */}
-      <section className="section-standard" id="contact" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <section className="section-standard" id="contact" ref={contactRef} style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div className="contact-beams-wrapper">
           <Beams
             beamWidth={3}
@@ -465,7 +484,7 @@ function App() {
           />
         </div>
 
-        <div className={`section-content${!showIntro ? " is-visible" : ""}`} style={{ position: 'relative', zIndex: 5, opacity: showIntro ? 0 : 1, transition: 'opacity 0.8s ease-out 0.5s' }}>
+        <div className={`section-content contact-content-wrapper${!showIntro && contactInView ? " is-visible" : ""}`} style={{ position: 'relative', zIndex: 5 }}>
           <h2>Contact</h2>
           <ContactForm />
         </div>
