@@ -161,8 +161,11 @@ function App() {
   useEffect(() => {
     const createObserver = (setInView) =>
       new IntersectionObserver(
-        ([entry]) => {
-          setInView(entry.isIntersecting);
+        ([entry], observer) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.unobserve(entry.target);
+          }
         },
         { threshold: 0.12 }
       );
