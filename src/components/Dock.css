@@ -41,13 +41,6 @@
   overflow: visible;
 }
 
-/* .dock-item:hover,
-.dock-item:focus-visible {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(192, 132, 252, 0.4);
-  box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
-} */
-
 .dock-icon {
   display: flex;
   align-items: center;
