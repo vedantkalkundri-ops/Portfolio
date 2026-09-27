@@ -192,13 +192,17 @@ body {
   border-radius: 9999px;
 }
 
+@media (max-width: 768px) {
+  .github-link {
+    right: calc(clamp(1rem, 3vw, 2.3rem) + 3.1rem);
+  }
+}
+
 @media (max-width: 480px) {
   .portfolio h1 {
     max-width: 10ch;
     font-size: 3rem;
   }
-
-
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -216,12 +220,12 @@ body {
   .achievements-list .ach-item,
   .skills-text-content h2,
   .skills-text-content .skills-subtitle,
-  .skills-text-content > div,
+  .skills-text-content>div,
   .skills-visual-content,
   .projects-container h2,
-  .projects-container > *:not(h2),
+  .projects-container>*:not(h2),
   .contact-content-wrapper h2,
-  .contact-content-wrapper > *:not(h2) {
+  .contact-content-wrapper>*:not(h2) {
     transition: none !important;
     transition-delay: 0s !important;
     transform: none !important;
@@ -544,7 +548,7 @@ body {
 
 .skills-text-content h2,
 .skills-text-content .skills-subtitle,
-.skills-text-content > div {
+.skills-text-content>div {
   opacity: 0;
   transform: translateX(-60px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -563,7 +567,7 @@ body {
   transition-delay: 0.25s;
 }
 
-.skills-container.is-visible .skills-text-content > div:nth-of-type(1) {
+.skills-container.is-visible .skills-text-content>div:nth-of-type(1) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.38s;
@@ -575,8 +579,8 @@ body {
   transition-delay: 0.52s;
 }
 
-.skills-container.is-visible .skills-text-content > div:nth-of-type(2),
-.skills-container.is-visible .skills-text-content > div:nth-of-type(3) {
+.skills-container.is-visible .skills-text-content>div:nth-of-type(2),
+.skills-container.is-visible .skills-text-content>div:nth-of-type(3) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.65s;
@@ -726,14 +730,14 @@ body {
   transition-delay: 0.15s;
 }
 
-.projects-container > *:not(h2) {
+.projects-container>*:not(h2) {
   opacity: 0;
   transform: translateY(60px) scale(0.98);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
-.projects-container.is-visible > *:not(h2) {
+.projects-container.is-visible>*:not(h2) {
   opacity: 1;
   transform: translateY(0) scale(1);
   transition-delay: 0.35s;
@@ -873,14 +877,14 @@ body {
   transition-delay: 0.15s;
 }
 
-.contact-content-wrapper > *:not(h2) {
+.contact-content-wrapper>*:not(h2) {
   opacity: 0;
   transform: translateY(60px);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
-.contact-content-wrapper.is-visible > *:not(h2) {
+.contact-content-wrapper.is-visible>*:not(h2) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.35s;
@@ -1153,16 +1157,16 @@ body {
 
 @media (max-width: 480px) {
   .portfolio-brand {
-    font-size: 1.2rem;
+    font-size: 2rem;
     top: 0.85rem;
     left: 0.85rem;
   }
 
   .github-link {
-    top: 0.8rem;
-    right: 0.85rem;
+    top: 1rem;
+    right: 4rem;
     height: 2.1rem;
-    padding: 0 0.45rem;
+    padding: 1.2rem 0.45rem;
   }
 
   .portfolio h1 {
@@ -1172,12 +1176,12 @@ body {
   }
 
   .portfolio-intro-line {
-    max-width: 100%;
+    max-width: 80%;
     font-size: 0.85rem;
   }
 
   .portfolio-static-title {
-    font-size: clamp(1.8rem, 9vw, 3.2rem);
+    font-size: clamp(4.6rem, 4.6rem, 3.2rem);
     letter-spacing: 0;
   }
 
@@ -1225,4 +1229,4 @@ body {
   .skills-visual-content {
     height: 320px;
   }
-}
+}
