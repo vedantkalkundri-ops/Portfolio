@@ -131,9 +131,9 @@ function Band({ isMobile, paused }) {
     return texture;
   }, [profileTexture, materials.base.map]);
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], isMobile ? 1.8 : 1]);
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], isMobile ? 1.8 : 1]);
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], isMobile ? 1.8 : 1]);
   useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.5, 0]]);
 
   useEffect(() => {
@@ -175,7 +175,7 @@ function Band({ isMobile, paused }) {
       curve.current.points[2].copy(p2);
       curve.current.points[3].copy(p3);
     }
-    band.current.geometry.setPoints(curve.current.getPoints(isMobile ? 16 : 32));
+    band.current.geometry.setPoints(curve.current.getPoints(isMobile ? 24 : 32));
 
     const angularVelocity = card.current.angvel();
     const rotation = card.current.rotation();
@@ -184,7 +184,7 @@ function Band({ isMobile, paused }) {
 
   return (
     <>
-      <group ref={groupRef} position={isMobile ? [0, 4, 0] : [4.8, 4, 0]}>
+      <group ref={groupRef} position={isMobile ? [0, 7.8, 0] : [4.8, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody ref={j1} position={[0.5, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
         <RigidBody ref={j2} position={[1, 0, 0]} {...segmentProps}><BallCollider args={[0.1]} /></RigidBody>
@@ -217,7 +217,7 @@ function Band({ isMobile, paused }) {
         </RigidBody>
         <mesh ref={band}>
           <meshLineGeometry />
-          <meshLineMaterial color="#dddcdd" depthTest={false} resolution={[1000, 1000]} lineWidth={0.6} />
+          <meshLineMaterial color="#dddcdd" depthTest={false} resolution={[1000, 1000]} lineWidth={isMobile ? 1.9 : 0.5} />
         </mesh>
       </group>
     </>
