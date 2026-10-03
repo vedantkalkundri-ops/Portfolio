@@ -1,26 +1,26 @@
 .dock-outer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   width: 100%;
   max-width: 100%;
   align-items: flex-end;
   justify-content: flex-start;
   margin: 0;
-  overflow-x: auto;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch;
+  overflow: visible;
   scrollbar-width: none;
   transition: z-index 0.2s ease;
+  pointer-events: none;
+}
+
+.dock-outer + .dock-outer {
+  z-index: 1;
+  margin-top: -58px;
 }
 
 .dock-outer:hover,
 .dock-outer:focus-within {
-  z-index: 10;
-}
-
-.dock-outer + .dock-outer {
-  margin-top: -58px;
+  z-index: 20;
 }
 
 .skills-subtitle + .dock-outer {
@@ -66,6 +66,7 @@
   width: max-content;
   gap: 0.4rem;
   padding-bottom: 12px;
+  pointer-events: auto;
 }
 
 .dock-item {
