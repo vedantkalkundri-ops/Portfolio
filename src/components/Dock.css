@@ -13,7 +13,7 @@
   pointer-events: auto;
 }
 
-.dock-outer + .dock-outer {
+.dock-outer+.dock-outer {
   z-index: 1;
   margin-top: -58px;
 }
@@ -23,12 +23,18 @@
   z-index: 20;
 }
 
-.skills-subtitle + .dock-outer {
-  margin-top: -35px;
+.skills-subtitle+.dock-outer,
+.skills-subtitle+.desktop-tools-dock,
+.skills-subtitle+.mobile-tools-dock,
+.desktop-tools-dock>.dock-outer:first-child,
+.mobile-tools-dock>.dock-outer:first-child {
+  margin-top: -20px;
 }
 
-.dock-outer + .skills-subtitle {
-  margin-top: 1.75rem;
+.dock-outer+.skills-subtitle,
+.desktop-tools-dock+.skills-subtitle,
+.mobile-tools-dock+.skills-subtitle {
+  margin-top: 1.25rem;
 }
 
 .dock-outer::-webkit-scrollbar {
@@ -122,16 +128,18 @@
     padding-bottom: 8px !important;
   }
 
-  .dock-outer + .dock-outer {
-    margin-top: 0.5rem !important;
+  .skills-subtitle+.dock-outer,
+  .skills-subtitle+.desktop-tools-dock,
+  .skills-subtitle+.mobile-tools-dock,
+  .desktop-tools-dock>.dock-outer:first-child,
+  .mobile-tools-dock>.dock-outer:first-child {
+    margin-top: -2px !important;
   }
 
-  .skills-subtitle + .dock-outer {
-    margin-top: 0.5rem !important;
-  }
-
-  .dock-outer + .skills-subtitle {
-    margin-top: 1.25rem !important;
+  .dock-outer+.skills-subtitle,
+  .desktop-tools-dock+.skills-subtitle,
+  .mobile-tools-dock+.skills-subtitle {
+    margin-top: 1rem !important;
   }
 }
 
