@@ -10,7 +10,7 @@
   overflow: visible;
   scrollbar-width: none;
   transition: z-index 0.2s ease;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .dock-outer + .dock-outer {
@@ -32,26 +32,38 @@
 }
 
 @media (max-width: 768px) {
+  .dock-outer {
+    height: auto !important;
+    overflow: visible;
+    margin-bottom: 0.5rem;
+  }
+
+  .dock-panel {
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.45rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 8px;
+  }
+
   .dock-outer + .dock-outer {
-    margin-top: -48px;
+    margin-top: 0.5rem;
   }
+
   .skills-subtitle + .dock-outer {
-    margin-top: -28px;
+    margin-top: 0.5rem;
   }
+
   .dock-outer + .skills-subtitle {
     margin-top: 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dock-outer + .dock-outer {
-    margin-top: -40px;
-  }
-  .skills-subtitle + .dock-outer {
-    margin-top: -22px;
-  }
-  .dock-outer + .skills-subtitle {
-    margin-top: 1rem;
+  .dock-panel {
+    gap: 0.4rem;
   }
 }
 
