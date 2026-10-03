@@ -117,7 +117,7 @@ export default function Dock({
     return () => window.removeEventListener('resize', updateSizes);
   }, [baseItemSize, magnification]);
 
-  const fixedHeight = useMemo(() => effectiveMagnification + 16, [effectiveMagnification]);
+  const fixedHeight = useMemo(() => effectiveMagnification + 55, [effectiveMagnification]);
 
   return (
     <div
