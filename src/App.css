@@ -531,6 +531,7 @@ body {
   z-index: 5;
   opacity: 0;
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
 }
 
 .skills-container.is-visible {
@@ -1195,6 +1196,11 @@ body {
   .portfolio-static-title {
     font-size: clamp(4.6rem, 4.6rem, 3.2rem);
     letter-spacing: 0;
+  }
+
+  .skills-container {
+    height: 60rem;
+    padding-bottom: 6rem;
   }
 
   .section-standard,
