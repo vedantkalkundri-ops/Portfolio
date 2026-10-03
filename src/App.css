@@ -587,6 +587,26 @@ body {
   transition-delay: 0.65s;
 }
 
+.desktop-tools-dock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mobile-tools-dock {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-tools-dock {
+    display: none !important;
+  }
+  .mobile-tools-dock {
+    display: block !important;
+    width: 100%;
+  }
+}
+
 .skills-subtitle {
   font-family: 'hello good old outline', sans-serif;
   font-size: 1.75rem;

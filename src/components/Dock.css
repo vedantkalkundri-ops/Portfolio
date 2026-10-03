@@ -31,42 +31,6 @@
   margin-top: 1.75rem;
 }
 
-@media (max-width: 768px) {
-  .dock-outer {
-    height: auto !important;
-    overflow: visible;
-    margin-bottom: 0.5rem;
-  }
-
-  .dock-panel {
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 100%;
-    gap: 0.45rem;
-    align-items: center;
-    justify-content: flex-start;
-    padding-bottom: 8px;
-  }
-
-  .dock-outer + .dock-outer {
-    margin-top: 0.5rem;
-  }
-
-  .skills-subtitle + .dock-outer {
-    margin-top: 0.5rem;
-  }
-
-  .dock-outer + .skills-subtitle {
-    margin-top: 1.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .dock-panel {
-    gap: 0.4rem;
-  }
-}
-
 .dock-outer::-webkit-scrollbar {
   display: none;
 }
@@ -76,6 +40,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   width: max-content;
+  max-width: 100%;
   gap: 0.4rem;
   padding-bottom: 12px;
   pointer-events: auto;
@@ -137,4 +102,41 @@
   z-index: 99999;
   pointer-events: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile responsive styles - MUST be after base declarations */
+@media (max-width: 768px) {
+  .dock-outer {
+    height: auto !important;
+    overflow: visible !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .dock-panel {
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 0.45rem !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding-bottom: 8px !important;
+  }
+
+  .dock-outer + .dock-outer {
+    margin-top: 0.5rem !important;
+  }
+
+  .skills-subtitle + .dock-outer {
+    margin-top: 0.5rem !important;
+  }
+
+  .dock-outer + .skills-subtitle {
+    margin-top: 1.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dock-panel {
+    gap: 0.4rem !important;
+  }
 }

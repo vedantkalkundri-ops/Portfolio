@@ -37,11 +37,11 @@ const toolItems1 = [
   { icon: <img src="/nmap-logo.png" alt="Nmap" />, label: "Nmap" },
   { icon: <img src="/Wireshark_icon_new.png" alt="Wireshark" />, label: "Wireshark" },
   { icon: <img src="/Adobe_Photoshop_CC_icon.svg.webp" alt="Photoshop" />, label: "Photoshop" },
-  { icon: <img src="/figma.png" alt="Figma" />, label: "Figma" }
+  { icon: <img src="/figma.png" alt="Figma" />, label: "Figma" },
+  { icon: <img src="/Canva-logo.png" alt="Canva" />, label: "Canva" }
 ];
 
 const toolItems2 = [
-  { icon: <img src="/Canva-logo.png" alt="Canva" />, label: "Canva" },
   { icon: <img src="/gamma.png" alt="Gamma" />, label: "Gamma" },
   { icon: <img src="/new-ChatGPT-icon-white-png-large-size.png" alt="ChatGPT" />, label: "ChatGPT" },
   { icon: <img src="/Google_Gemini_icon_2025.svg.webp" alt="Gemini" />, label: "Gemini" },
@@ -50,6 +50,8 @@ const toolItems2 = [
   { icon: <img src="/github-white-icon.webp" alt="GitHub" />, label: "GitHub" },
   { icon: <img src="/vercel.png" alt="Vercel" />, label: "Vercel" }
 ];
+
+const allToolItems = [...toolItems1, ...toolItems2];
 
 const projectItems = [
   {
@@ -388,8 +390,13 @@ function App() {
             <Dock items={techItems} baseItemSize={60} magnification={80} />
 
             <h3 className="skills-subtitle">Software Tools</h3>
-            <Dock items={toolItems1} baseItemSize={60} magnification={80} />
-            <Dock items={toolItems2} baseItemSize={60} magnification={80} />
+            <div className="desktop-tools-dock">
+              <Dock items={toolItems1} baseItemSize={60} magnification={80} />
+              <Dock items={toolItems2} baseItemSize={60} magnification={80} />
+            </div>
+            <div className="mobile-tools-dock">
+              <Dock items={allToolItems} baseItemSize={60} magnification={80} />
+            </div>
           </div>
 
           <div className="skills-visual-content">
