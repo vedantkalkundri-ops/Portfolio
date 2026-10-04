@@ -110,4 +110,4 @@ Portfolio/
 
 Full-stack developer with a focus on React, Python, AI/ML, and immersive UI/UX.
 
-GitHub: [@vedantkalkundri-ops](https://github.com/vedantkalkundri-ops)
+Gmail: (vedantkalkundri@gmail.com)
