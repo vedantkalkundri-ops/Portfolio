@@ -207,7 +207,7 @@ function App() {
       <a
         id="github-portfolio-link"
         className="github-link"
-        href="https://github.com/vedantkalkundri-ops/Portfolio"
+        href="https://github.com/vedantkalkundri-ops"
         target="_blank"
         rel="noreferrer"
         aria-label="Open Vedant Kalkundri's GitHub repository"
